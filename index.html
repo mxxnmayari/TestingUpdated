@@ -653,9 +653,37 @@ body{background-color:#30204c;background-image:linear-gradient(90deg,#ffffff08 1
 #playlists .playlist-grid,#songs .song-grid{display:grid;grid-template-columns:1fr;gap:0}
 @media(max-width:720px){.section-intro-window .content-body{padding:19px 17px 22px}.independent-window>.titlebar,.section-intro-window>.titlebar{min-height:48px;padding:10px 12px;font-size:8px}.independent-body{padding:13px}.independent-list{gap:17px}}
 
+
+/* Opening decoration revision: quiet pixel clouds and tiny celestial pixels */
+#loginScreen .entry-disc,#loginScreen .entry-cassette,#loginScreen .entry-butterfly,#loginScreen .entry-note,#loginScreen .entry-orbit{display:none!important}
+#loginScreen .entry-y2k-art{z-index:1!important;overflow:hidden!important}
+#loginScreen .entry-cloud{position:absolute;display:block;width:58px;height:14px;background:#fff8dc;border:0;image-rendering:pixelated;filter:drop-shadow(3px 3px 0 #8e8bb9);opacity:.9}
+#loginScreen .entry-cloud:before{content:"";position:absolute;left:12px;top:-10px;width:22px;height:12px;background:#fff8dc;box-shadow:13px 5px 0 #fff8dc,-4px 10px 0 #fff8dc}
+#loginScreen .entry-cloud:after{content:"";position:absolute;inset:0;border-top:3px solid #fff;border-bottom:3px solid #d9d5ed;pointer-events:none}
+#loginScreen .entry-cloud-one{left:12%;top:19%;transform:scale(1.05)}
+#loginScreen .entry-cloud-two{right:12%;bottom:18%;transform:scale(.78)}
+#loginScreen .entry-pixel-star,#loginScreen .entry-pixel-heart{position:absolute;display:block;font-family:Silkscreen,monospace;line-height:1;filter:drop-shadow(2px 2px 0 #8d86b6);user-select:none}
+#loginScreen .entry-pixel-star{font-size:23px;color:#fff5bb;text-shadow:2px 2px 0 #8884b4}
+#loginScreen .entry-pixel-star-one{left:15%;bottom:22%;animation:pixelTwinkle 3.4s steps(2,end) infinite}
+#loginScreen .entry-pixel-star-two{right:17%;top:23%;font-size:17px;color:#fff;animation:pixelTwinkle 3.4s steps(2,end) 1.1s infinite}
+#loginScreen .entry-pixel-heart{font-size:15px;color:#9fcfe3;text-shadow:2px 2px 0 #7975a8}
+#loginScreen .entry-pixel-heart-one{left:23%;top:28%}
+#loginScreen .entry-pixel-heart-two{right:23%;bottom:27%;color:#f1dfaa}
+@media(max-width:600px){#loginScreen .entry-cloud-one{left:-9px;top:15%;transform:scale(.75)}#loginScreen .entry-cloud-two{right:-10px;bottom:14%;transform:scale(.65)}#loginScreen .entry-pixel-star-one{left:7%;bottom:17%}#loginScreen .entry-pixel-star-two{right:8%;top:17%}#loginScreen .entry-pixel-heart-one{left:12%;top:25%}#loginScreen .entry-pixel-heart-two{right:12%;bottom:24%}}
+
+
+/* Opening screen: clouds only — remove all other decorative marks */
+#loginScreen:before,#loginScreen:after{content:none!important;display:none!important}
+#loginScreen .entry-y2k-art{position:absolute!important;inset:0!important;display:block!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
+#loginScreen .entry-y2k-art>*{display:none!important}
+#loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:34px!important;height:14px!important;background:#fffdf5!important;image-rendering:pixelated!important;opacity:.9!important;box-shadow:0 -10px 0 -3px #fffdf5,10px -7px 0 -2px #fffdf5,20px -3px 0 -2px #fffdf5,30px 0 0 -3px #fffdf5, -10px 4px 0 -3px #fffdf5, 10px 7px 0 -2px #fffdf5, 20px 7px 0 -2px #fffdf5, 35px 4px 0 -3px #fffdf5!important;filter:drop-shadow(3px 4px 0 #9995c0)!important;animation:cloudDrift 28s ease-in-out infinite alternate!important}
+#loginScreen .entry-y2k-art:before{left:7%!important;top:17%!important;transform:scale(1.35)!important}
+#loginScreen .entry-y2k-art:after{right:8%!important;bottom:17%!important;transform:scale(.95)!important;animation-delay:-9s!important;opacity:.78!important}
+@keyframes cloudDrift{from{margin-left:-8px}to{margin-left:12px}}
+@media(max-width:600px){#loginScreen .entry-y2k-art:before{left:2%!important;top:13%!important;transform:scale(.9)!important}#loginScreen .entry-y2k-art:after{right:0!important;bottom:12%!important;transform:scale(.72)!important}}
 </style><meta name="description" content="Tangi's Little Haven — a retro Y2K little universe."></head>
 <body>
-<section id="loginScreen" class="login-screen"><div class="entry-y2k-art" aria-hidden="true"><span class="entry-disc"></span><span class="entry-cassette"><i></i><b></b></span><span class="entry-butterfly">✧</span><span class="entry-star entry-star-one">✦</span><span class="entry-star entry-star-two">✧</span><span class="entry-note">♫</span><span class="entry-orbit"></span></div><div class="chrome login-card"><div class="titlebar"><span>WELCOME.EXE — ACCESS PORTAL</span><div class="win-controls"><span>_</span><span>□</span><span>×</span></div></div><div class="login-inner"><div class="pixel" style="font-size:9px;color:#8054ad">LOGGED INTO: MY HEART'S HOMEPAGE</div><h1>Tangi's Little Haven</h1><p class="sub">System Status: Heartbeat synced with Tangi</p><form id="loginForm"><div class="field"><label for="userId">USER ID</label><input id="userId" autocomplete="username" placeholder="Enter your user ID" required></div><div class="field"><label for="password">PASSWORD</label><div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">SHOW</button></div></div><button class="primary" type="submit" style="width:100%;margin-top:8px">ENTER THE HAVEN →</button><div id="loginError" class="error" aria-live="polite"></div></form><div class="hint" id="passwordHint">PASSWORD HINT: <b>Your favorite song. Lowercase, with a space.</b></div></div></div></section>
+<section id="loginScreen" class="login-screen"><div class="entry-y2k-art" aria-hidden="true"><span class="entry-cloud entry-cloud-one"></span><span class="entry-cloud entry-cloud-two"></span><span class="entry-pixel-star entry-pixel-star-one">✦</span><span class="entry-pixel-star entry-pixel-star-two">✧</span><span class="entry-pixel-heart entry-pixel-heart-one">♥</span><span class="entry-pixel-heart entry-pixel-heart-two">♥</span></div><div class="chrome login-card"><div class="titlebar"><span>WELCOME.EXE — ACCESS PORTAL</span><div class="win-controls"><span>_</span><span>□</span><span>×</span></div></div><div class="login-inner"><div class="pixel" style="font-size:9px;color:#8054ad">LOGGED INTO: MY HEART'S HOMEPAGE</div><h1>Tangi's Little Haven</h1><p class="sub">System Status: Heartbeat synced with Tangi</p><form id="loginForm"><div class="field"><label for="userId">USER ID</label><input id="userId" autocomplete="username" placeholder="Enter your user ID" required></div><div class="field"><label for="password">PASSWORD</label><div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">SHOW</button></div></div><button class="primary" type="submit" style="width:100%;margin-top:8px">ENTER THE HAVEN →</button><div id="loginError" class="error" aria-live="polite"></div></form><div class="hint" id="passwordHint">PASSWORD HINT: <b>Your favorite song. Lowercase, with a space.</b></div></div></div></section>
 <main id="desktop" class="desktop hidden"><div class="desktop-top"><span class="brand">TANGI'S LITTLE HAVEN // ONLINE</span><span id="clock">MY LITTLE CORNER OF THE INTERNET</span></div><div class="desktop-grid"><nav class="dock folder-nav" aria-label="Main navigation"><div class="folder-nav-label">YOUR LITTLE SPACE</div><button class="active" data-section="home"><span class="folder-tab"></span><span class="folder-name">Back to Haven</span><span class="folder-meta">01 / HOME</span></button><button data-section="why"><span class="folder-tab"></span><span class="folder-name">Open Love.exe</span><span class="folder-meta">02 / THE NOTE</span></button><button data-section="playlists"><span class="folder-tab"></span><span class="folder-name">Spotify.mp3</span><span class="folder-meta">03 / SOUNDTRACK</span></button><button data-section="songs"><span class="folder-tab"></span><span class="folder-name">Heartbeat.mp3</span><span class="folder-meta">04 / DEDICATED</span></button><button data-section="hearts"><span class="folder-tab"></span><span class="folder-name">Read_Me.txt</span><span class="folder-meta">05 / READ ME WHEN</span></button><button data-section="guestbook"><span class="folder-tab"></span><span class="folder-name">Send Love.msg</span><span class="folder-meta">07 / GUESTBOOK</span></button><button data-section="admin"><span class="folder-tab"></span><span class="folder-name">Customize</span><span class="folder-meta">08 / OWNER ONLY</span></button></nav><div class="workspace">
 <section id="home" class="page"><div class="chrome welcome"><div class="titlebar"><span id="homeWindowTitle">LOGGED INTO: MY HEART'S HOMEPAGE</span><div class="win-controls"><span>_</span><span>□</span><span>×</span></div></div><div class="welcome-body"><div><div class="kicker" id="homeKicker">SYSTEM STATUS: HEARTBEAT SYNCED WITH TANGI</div><h2 id="homeTitle">Tangi's Little Haven</h2><p id="descHome">A little place to pause, listen, read, and find something kind waiting for you. Choose a folder whenever you feel like staying a while.</p><span class="pixel" id="homeSubline" style="font-size:9px;color:#9566bd">HEARTBEAT.EXE // ONLINE</span></div></div></div><div class="home-bottom"><span class="pixel" id="homeBottomLabel">A PLACE TO COME BACK TO</span><p id="homeBottomText">Nothing to finish. Nothing to hurry. Just take whatever you need from here.</p><div class="home-shortcuts"><button id="shortcut1" data-section="why">OPEN THE LETTER <span>↗</span></button><button id="shortcut2" data-section="playlists">LISTEN A LITTLE <span>↗</span></button><button id="shortcut3" data-section="hearts">FIND A REMINDER <span>↗</span></button></div></div></section>
 <section id="why" class="page hidden skin-letter"><div class="chrome content-window"><div class="titlebar"><span>OPEN_LOVE.EXE</span><div class="win-controls"><span>_</span><span>□</span><span>×</span></div></div><div class="content-body"><div class="kicker">A NOTE FROM ME TO YOU</div><h2 class="section-heading">Why did I make this?</h2><p class="section-intro" id="descWhy">A little space for all the things I want you to keep.</p><div id="letterList" class="letter-list"></div></div></div></section>
@@ -1051,6 +1079,16 @@ $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:
  #playlists .spotify-frame{height:352px!important;min-height:352px!important}
 }
 
+
+/* Opening screen: clouds only — remove all other decorative marks */
+#loginScreen:before,#loginScreen:after{content:none!important;display:none!important}
+#loginScreen .entry-y2k-art{position:absolute!important;inset:0!important;display:block!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
+#loginScreen .entry-y2k-art>*{display:none!important}
+#loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:34px!important;height:14px!important;background:#fffdf5!important;image-rendering:pixelated!important;opacity:.9!important;box-shadow:0 -10px 0 -3px #fffdf5,10px -7px 0 -2px #fffdf5,20px -3px 0 -2px #fffdf5,30px 0 0 -3px #fffdf5, -10px 4px 0 -3px #fffdf5, 10px 7px 0 -2px #fffdf5, 20px 7px 0 -2px #fffdf5, 35px 4px 0 -3px #fffdf5!important;filter:drop-shadow(3px 4px 0 #9995c0)!important;animation:cloudDrift 28s ease-in-out infinite alternate!important}
+#loginScreen .entry-y2k-art:before{left:7%!important;top:17%!important;transform:scale(1.35)!important}
+#loginScreen .entry-y2k-art:after{right:8%!important;bottom:17%!important;transform:scale(.95)!important;animation-delay:-9s!important;opacity:.78!important}
+@keyframes cloudDrift{from{margin-left:-8px}to{margin-left:12px}}
+@media(max-width:600px){#loginScreen .entry-y2k-art:before{left:2%!important;top:13%!important;transform:scale(.9)!important}#loginScreen .entry-y2k-art:after{right:0!important;bottom:12%!important;transform:scale(.72)!important}}
 </style>
 
 
@@ -1079,6 +1117,16 @@ $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:
 #playlists .playlist-window-4 .playlist-windowbar{background:linear-gradient(90deg,#916b50,#c29b7c,#e5cdb0)!important}
 #playlists .playlist-window-4 .playlist-screen-label,#playlists .playlist-window-4 .playlist-footer{background:linear-gradient(90deg,#f4e8dc,#f0e4ef)!important}
 @media(max-width:600px){#playlists .content-body{padding:10px!important}#playlists .playlist-grid{gap:15px!important}#playlists .playlist-window-inner{padding:6px!important}#playlists .playlist-window-top{min-height:52px!important;padding:6px!important;margin-bottom:5px!important}#playlists .playlist-mini-icon{width:38px!important;height:38px!important;flex-basis:38px!important}#playlists .spotify-frame{height:352px!important;min-height:352px!important}}
+
+/* Opening screen: clouds only — remove all other decorative marks */
+#loginScreen:before,#loginScreen:after{content:none!important;display:none!important}
+#loginScreen .entry-y2k-art{position:absolute!important;inset:0!important;display:block!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
+#loginScreen .entry-y2k-art>*{display:none!important}
+#loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:34px!important;height:14px!important;background:#fffdf5!important;image-rendering:pixelated!important;opacity:.9!important;box-shadow:0 -10px 0 -3px #fffdf5,10px -7px 0 -2px #fffdf5,20px -3px 0 -2px #fffdf5,30px 0 0 -3px #fffdf5, -10px 4px 0 -3px #fffdf5, 10px 7px 0 -2px #fffdf5, 20px 7px 0 -2px #fffdf5, 35px 4px 0 -3px #fffdf5!important;filter:drop-shadow(3px 4px 0 #9995c0)!important;animation:cloudDrift 28s ease-in-out infinite alternate!important}
+#loginScreen .entry-y2k-art:before{left:7%!important;top:17%!important;transform:scale(1.35)!important}
+#loginScreen .entry-y2k-art:after{right:8%!important;bottom:17%!important;transform:scale(.95)!important;animation-delay:-9s!important;opacity:.78!important}
+@keyframes cloudDrift{from{margin-left:-8px}to{margin-left:12px}}
+@media(max-width:600px){#loginScreen .entry-y2k-art:before{left:2%!important;top:13%!important;transform:scale(.9)!important}#loginScreen .entry-y2k-art:after{right:0!important;bottom:12%!important;transform:scale(.72)!important}}
 </style>
 
 
@@ -1102,6 +1150,16 @@ $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:
 .skin-hearts .feeling:hover{transform:translateY(-2px);box-shadow:inset 1px 1px #fff,3px 5px 0 #8d83a4!important}
 .skin-hearts .pop-message{border:2px solid #fff!important;border-radius:2px!important;background:linear-gradient(145deg,#fff,#e4e5f5)!important;box-shadow:inset 1px 1px #fff,4px 4px 0 #9c8eae!important}
 @media(max-width:720px){.skin-hearts .jar-visual{min-height:350px!important}.skin-hearts .jar{transform:scale(.94);transform-origin:center top;margin-bottom:-12px!important}.skin-hearts .jar-area{grid-template-columns:1fr}}
+
+/* Opening screen: clouds only — remove all other decorative marks */
+#loginScreen:before,#loginScreen:after{content:none!important;display:none!important}
+#loginScreen .entry-y2k-art{position:absolute!important;inset:0!important;display:block!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
+#loginScreen .entry-y2k-art>*{display:none!important}
+#loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:34px!important;height:14px!important;background:#fffdf5!important;image-rendering:pixelated!important;opacity:.9!important;box-shadow:0 -10px 0 -3px #fffdf5,10px -7px 0 -2px #fffdf5,20px -3px 0 -2px #fffdf5,30px 0 0 -3px #fffdf5, -10px 4px 0 -3px #fffdf5, 10px 7px 0 -2px #fffdf5, 20px 7px 0 -2px #fffdf5, 35px 4px 0 -3px #fffdf5!important;filter:drop-shadow(3px 4px 0 #9995c0)!important;animation:cloudDrift 28s ease-in-out infinite alternate!important}
+#loginScreen .entry-y2k-art:before{left:7%!important;top:17%!important;transform:scale(1.35)!important}
+#loginScreen .entry-y2k-art:after{right:8%!important;bottom:17%!important;transform:scale(.95)!important;animation-delay:-9s!important;opacity:.78!important}
+@keyframes cloudDrift{from{margin-left:-8px}to{margin-left:12px}}
+@media(max-width:600px){#loginScreen .entry-y2k-art:before{left:2%!important;top:13%!important;transform:scale(.9)!important}#loginScreen .entry-y2k-art:after{right:0!important;bottom:12%!important;transform:scale(.72)!important}}
 </style>
 
 
@@ -1139,6 +1197,16 @@ $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:
 .skin-songs .mp3-bottomline{display:flex!important;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:7px 12px!important;border-top:1px solid #fff!important;background:#bfc9df!important;color:#4d4b70!important;font:6px Silkscreen,monospace!important}
 .skin-songs .letter-window{margin-top:16px!important;border:2px solid #fff!important;border-radius:4px!important;background:linear-gradient(145deg,#f8f5ff,#d9dff0)!important;box-shadow:inset 2px 2px #fff,3px 4px 0 #8c82a5!important;padding:14px!important}
 @media(max-width:560px){.skin-songs .mp3-screen{grid-template-columns:76px minmax(0,1fr)!important;gap:9px!important;padding:9px!important}.skin-songs .mp3-art{width:74px!important;height:74px!important}.skin-songs .pixel-cd-note{width:66px!important;height:66px!important}.skin-songs .mp3-track-info h3{font-size:10px!important}.skin-songs .song-actions button{flex:1 1 130px}}
+
+/* Opening screen: clouds only — remove all other decorative marks */
+#loginScreen:before,#loginScreen:after{content:none!important;display:none!important}
+#loginScreen .entry-y2k-art{position:absolute!important;inset:0!important;display:block!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
+#loginScreen .entry-y2k-art>*{display:none!important}
+#loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:34px!important;height:14px!important;background:#fffdf5!important;image-rendering:pixelated!important;opacity:.9!important;box-shadow:0 -10px 0 -3px #fffdf5,10px -7px 0 -2px #fffdf5,20px -3px 0 -2px #fffdf5,30px 0 0 -3px #fffdf5, -10px 4px 0 -3px #fffdf5, 10px 7px 0 -2px #fffdf5, 20px 7px 0 -2px #fffdf5, 35px 4px 0 -3px #fffdf5!important;filter:drop-shadow(3px 4px 0 #9995c0)!important;animation:cloudDrift 28s ease-in-out infinite alternate!important}
+#loginScreen .entry-y2k-art:before{left:7%!important;top:17%!important;transform:scale(1.35)!important}
+#loginScreen .entry-y2k-art:after{right:8%!important;bottom:17%!important;transform:scale(.95)!important;animation-delay:-9s!important;opacity:.78!important}
+@keyframes cloudDrift{from{margin-left:-8px}to{margin-left:12px}}
+@media(max-width:600px){#loginScreen .entry-y2k-art:before{left:2%!important;top:13%!important;transform:scale(.9)!important}#loginScreen .entry-y2k-art:after{right:0!important;bottom:12%!important;transform:scale(.72)!important}}
 </style>
 
 
@@ -1395,4 +1463,32 @@ h1{color:#55477f!important;text-shadow:2px 2px #fff!important;font-family:Silksc
  .folder-meta{font-size:5px!important}
  .titlebar{font-size:7px!important}
 }
+/* Opening screen refresh — dreamy pixel-art desktop */
+#loginScreen:not(.has-photo){min-height:100svh!important;overflow:hidden!important;isolation:isolate!important;background-color:#c8c6ed!important;background-image:radial-gradient(circle at 12% 18%,#fff4bd 0 3px,transparent 4px),radial-gradient(circle at 82% 22%,#fff 0 2px,transparent 3px),radial-gradient(circle at 74% 78%,#a8dff2 0 3px,transparent 4px),linear-gradient(90deg,#ffffff20 1px,transparent 1px),linear-gradient(#ffffff20 1px,transparent 1px),linear-gradient(145deg,#b9c7eb,#d9d2f0 46%,#c8e4f0)!important;background-size:auto,auto,auto,24px 24px,24px 24px,cover!important}
+#loginScreen:before{content:""!important;position:absolute!important;inset:13px!important;z-index:0!important;pointer-events:none!important;opacity:1!important;border:2px dashed #fff9!important;box-shadow:inset 0 0 0 5px #b6b1df55,0 0 0 1px #8f91c255!important;background:radial-gradient(circle,#fff 0 2px,transparent 3px) 8% 15%/34px 34px,radial-gradient(circle,#f6df9d 0 2px,transparent 3px) 91% 25%/42px 42px,radial-gradient(circle,#a8dff2 0 2px,transparent 3px) 13% 83%/38px 38px!important}
+#loginScreen:after{content:"✦  ·  ✧  ·  ✦  ·  ✧  ·  ✦"!important;top:5%!important;color:#7c79b3!important;font:12px Silkscreen,monospace!important;letter-spacing:.55em!important;text-shadow:2px 2px #fff!important;opacity:.8!important}
+#loginScreen .entry-y2k-art{display:block!important;position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important}#loginScreen .entry-orbit{display:none!important}
+#loginScreen .entry-disc{width:clamp(105px,17vw,180px)!important;height:clamp(105px,17vw,180px)!important;left:8%!important;top:16%!important;opacity:.88!important;filter:none!important;border:4px solid #fff!important;border-radius:50%!important;background:repeating-conic-gradient(#f8f5ff 0 10deg,#aeb8df 10deg 20deg,#e9dafa 20deg 30deg,#b8dff0 30deg 40deg)!important;box-shadow:4px 5px 0 #7775a5,0 0 0 5px #fff7!important;image-rendering:pixelated!important}
+#loginScreen .entry-disc:before{inset:37%!important;background:#fff8d6!important;border:4px solid #827bb1!important;border-radius:50%!important;box-shadow:inset 0 0 0 5px #c7bde7!important}
+#loginScreen .entry-cassette{width:clamp(105px,16vw,160px)!important;height:clamp(72px,11vw,105px)!important;right:9%!important;top:19%!important;border:4px solid #fff!important;border-radius:3px!important;background:linear-gradient(145deg,#eee9ff 0 24%,#b4b3df 25% 72%,#8ebdd8 73%)!important;box-shadow:4px 5px 0 #7775a5,inset 0 0 0 3px #a59bc9!important;transform:rotate(8deg)!important}
+#loginScreen .entry-cassette:before{border:3px solid #fff!important;border-radius:2px!important;background:linear-gradient(90deg,#7b79ac,#f9f3cf,#7b79ac)!important}#loginScreen .entry-cassette i,#loginScreen .entry-cassette b{border:3px solid #fff!important;background:#f5e6a9!important;box-shadow:0 2px 0 #766e9e!important}
+#loginScreen .entry-butterfly{right:12%!important;bottom:15%!important;color:#f5e5a6!important;font-size:54px!important;text-shadow:3px 3px 0 #8279ae!important}#loginScreen .entry-star{color:#fff2b2!important;text-shadow:2px 2px 0 #9387bd,0 0 8px #fff!important}#loginScreen .entry-star-two{color:#fff!important}#loginScreen .entry-note{left:12%!important;top:67%!important;color:#fff!important;font-size:38px!important;text-shadow:3px 3px 0 #8c83ba!important}
+#loginScreen .login-card{width:min(100%,455px)!important;max-width:455px!important;z-index:3!important;border:3px solid #fff!important;border-radius:4px!important;background:linear-gradient(145deg,#fffef8,#f1effc 52%,#dcecf6)!important;box-shadow:inset 2px 2px #fff,4px 5px 0 #8d86b6,8px 9px 0 #b9b4d5,0 18px 40px #5b568555!important}
+#loginScreen .titlebar{min-height:38px!important;padding:9px 12px!important;background:linear-gradient(90deg,#55538e,#817eb8 55%,#9bbdd5)!important;border-bottom:2px solid #fff!important;font-size:8px!important;letter-spacing:.05em!important}#loginScreen .win-controls span{width:19px!important;height:18px!important;border:1px solid #fff!important;border-radius:2px!important;background:linear-gradient(#fffef5,#d9d8ed)!important;color:#575184!important;box-shadow:2px 2px 0 #77729f!important}
+#loginScreen .login-inner{padding:clamp(22px,5vw,32px)!important}#loginScreen .login-mark{width:68px!important;height:68px!important;border:3px solid #fff!important;border-radius:5px!important;background:linear-gradient(145deg,#fff3b9,#c7b9ec 52%,#91cbe0)!important;box-shadow:inset 2px 2px #fff,3px 4px 0 #8a83b0!important}#loginScreen .login-mark:before{width:30px!important;height:30px!important;border:3px solid #fff!important;border-radius:2px!important;box-shadow:3px 3px 0 #8b83b1!important}
+#loginScreen h1{font:700 clamp(18px,4.2vw,25px)/1.6 Silkscreen,monospace!important;color:#575087!important;text-shadow:2px 2px #fff!important}#loginScreen .sub,#loginScreen .hint{color:#716b98!important}#loginScreen .field label{color:#615b91!important}#loginScreen .field input{border:2px solid #fff!important;border-radius:2px!important;background:linear-gradient(#fff,#f1f4fc)!important;box-shadow:inset 2px 2px #d5d1e8,2px 2px 0 #aaa4ca!important}
+#loginScreen .primary{border:2px solid #fff!important;border-radius:2px!important;background:linear-gradient(#f8eab5,#c2b8e8 52%,#8daed0)!important;color:#fff!important;text-shadow:1px 1px #5d5b8d!important;box-shadow:2px 3px 0 #7773a2!important}#loginScreen .password-toggle{border-radius:2px!important;background:linear-gradient(#fffef5,#dce8f4)!important;box-shadow:2px 2px 0 #a29abd!important}
+@keyframes pixelTwinkle{0%,100%{opacity:.55;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}#loginScreen .entry-star-one,#loginScreen .entry-star-two{animation:pixelTwinkle 2.8s steps(2,end) infinite}#loginScreen .entry-star-two{animation-delay:1.2s}
+@media(max-width:600px){#loginScreen:before{inset:8px!important}#loginScreen .entry-disc{left:-25px!important;top:10%!important;width:112px!important;height:112px!important}#loginScreen .entry-cassette{right:-17px!important;top:13%!important;width:105px!important;height:72px!important}#loginScreen .entry-butterfly{right:5%!important;bottom:7%!important;font-size:39px!important}#loginScreen .entry-note{left:5%!important;top:auto!important;bottom:9%!important;font-size:30px!important}#loginScreen .login-card{width:min(100%,430px)!important}}
+
+
+/* Opening screen: clouds only — remove all other decorative marks */
+#loginScreen:before,#loginScreen:after{content:none!important;display:none!important}
+#loginScreen .entry-y2k-art{position:absolute!important;inset:0!important;display:block!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
+#loginScreen .entry-y2k-art>*{display:none!important}
+#loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:34px!important;height:14px!important;background:#fffdf5!important;image-rendering:pixelated!important;opacity:.9!important;box-shadow:0 -10px 0 -3px #fffdf5,10px -7px 0 -2px #fffdf5,20px -3px 0 -2px #fffdf5,30px 0 0 -3px #fffdf5, -10px 4px 0 -3px #fffdf5, 10px 7px 0 -2px #fffdf5, 20px 7px 0 -2px #fffdf5, 35px 4px 0 -3px #fffdf5!important;filter:drop-shadow(3px 4px 0 #9995c0)!important;animation:cloudDrift 28s ease-in-out infinite alternate!important}
+#loginScreen .entry-y2k-art:before{left:7%!important;top:17%!important;transform:scale(1.35)!important}
+#loginScreen .entry-y2k-art:after{right:8%!important;bottom:17%!important;transform:scale(.95)!important;animation-delay:-9s!important;opacity:.78!important}
+@keyframes cloudDrift{from{margin-left:-8px}to{margin-left:12px}}
+@media(max-width:600px){#loginScreen .entry-y2k-art:before{left:2%!important;top:13%!important;transform:scale(.9)!important}#loginScreen .entry-y2k-art:after{right:0!important;bottom:12%!important;transform:scale(.72)!important}}
 </style>
