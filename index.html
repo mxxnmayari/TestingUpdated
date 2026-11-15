@@ -796,14 +796,14 @@ function allHeartMessages(){return feelings.flatMap(f=>f.messages.map((message,i
 function renderJarHearts(){
  const jar=$('randomHeart');if(!jar)return;
  const active=feelings.filter(f=>Array.isArray(f.messages)&&f.messages.length>0);
- const totalSlots=30,weight=active.reduce((sum,f)=>sum+f.messages.length,0);
- if(!weight){jar.innerHTML='<span class="jar-empty" aria-hidden="true">♡</span>';return;}
- const groups=active.map(f=>({feeling:f,count:Math.max(1,Math.floor(totalSlots*f.messages.length/weight))}));
- let used=groups.reduce((sum,g)=>sum+g.count,0);
- while(used>totalSlots){const g=groups.find(x=>x.count>1);if(!g)break;g.count--;used--;}
- while(used<totalSlots){groups.sort((a,b)=>b.feeling.messages.length-a.feeling.messages.length);groups[0].count++;used++;}
+ const slots=30,total=active.reduce((n,f)=>n+f.messages.length,0);
+ if(!total){jar.innerHTML='<span class="jar-empty" aria-hidden="true">♡</span>';return;}
+ const groups=active.map(f=>({feeling:f,count:Math.max(1,Math.floor(slots*f.messages.length/total))}));
+ let used=groups.reduce((n,g)=>n+g.count,0);
+ while(used>slots){const g=groups.find(x=>x.count>1);if(!g)break;g.count--;used--;}
+ while(used<slots){groups.sort((a,b)=>b.feeling.messages.length-a.feeling.messages.length);groups[0].count++;used++;}
  const hearts=groups.flatMap(g=>Array.from({length:g.count},()=>({color:g.feeling.color,name:g.feeling.name})));
- jar.innerHTML=hearts.map((h,i)=>{const col=i%5,row=Math.floor(i/5);return `<span class="jar-heart" aria-hidden="true" title="${escapeHtml(h.name)}" style="--heart-color:${h.color};--heart-index:${i};left:${5+col*38}px;top:${20+row*36}px"></span>`;}).join('');
+ jar.innerHTML=hearts.map((h,i)=>`<span class="jar-heart" aria-hidden="true" title="${escapeHtml(h.name)}" style="--heart-color:${h.color};--heart-index:${i};left:${5+(i%5)*38}px;top:${20+Math.floor(i/5)*36}px"></span>`).join('');
 }
 function renderFeelings(){ $('feelingGrid').innerHTML=feelings.map(f=>`<button class="feeling" data-feeling="${f.id}" style="--feeling:${f.color}"><span class="heart-dot">♥</span><span>${escapeHtml(f.name)}</span></button>`).join('');document.querySelectorAll('[data-feeling]').forEach(b=>b.addEventListener('click',()=>openFeeling(b.dataset.feeling)));$('heartCategory').innerHTML=feelings.map(f=>`<option value="${f.id}">${escapeHtml(f.name)}</option>`).join('');renderJarHearts();renderTracker();renderHeartAdmin();}
 function renderTracker(){const total=feelings.reduce((n,f)=>n+f.messages.length,0);$('heartTracker').innerHTML=feelings.map(f=>{const count=readMessages.filter(k=>k.startsWith(f.id+'_')).length;return `<div class="tracker-item"><b style="color:${f.color}">${escapeHtml(f.name)}</b>${openedCounts[f.id]||0} total opens · ${count}/${f.messages.length} in this cycle</div>`}).join('')+`<div class="tracker-item"><b>ALL NOTES</b>${readMessages.length} / ${total} read in current round</div>`;}
@@ -935,22 +935,14 @@ $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:
 })();
 
 </script>
-<style id="intro-clouds-only-and-emotion-heart-colors">
-/* Intro: keep only soft pixel clouds; remove the grid/dot wallpaper and all clipart. */
-#loginScreen{background:#c9c7e8!important;background-image:linear-gradient(145deg,#aebde0 0%,#c9c5e7 52%,#c5deed 100%)!important;background-size:cover!important}
-#loginScreen:before{content:none!important;display:none!important}
+<style id="intro-clouds-only">
 #loginScreen .entry-y2k-art{display:block!important;position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
 #loginScreen .entry-y2k-art>*{display:none!important}
 #loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:64px!important;height:18px!important;background:#fff9e9!important;image-rendering:pixelated!important;opacity:.94!important;box-shadow:-12px 5px 0 -3px #fff9e9,0 -9px 0 -3px #fff9e9,12px -14px 0 -3px #fff9e9,25px -9px 0 -3px #fff9e9,38px 0 0 -3px #fff9e9,50px 5px 0 -3px #fff9e9,12px 9px 0 -3px #fff9e9,30px 9px 0 -3px #fff9e9,3px 20px 0 -7px #fff9e9!important;filter:drop-shadow(3px 4px 0 #8580ad)!important}
 #loginScreen .entry-y2k-art:before{left:8%!important;top:17%!important;transform:scale(1.2)!important}
 #loginScreen .entry-y2k-art:after{right:9%!important;bottom:17%!important;transform:scale(.9)!important;opacity:.82!important}
-/* Every jar heart inherits the emotion's own category color, not a repeating generic palette. */
-.skin-hearts .jar-heart{background:linear-gradient(145deg,color-mix(in srgb,var(--heart-color) 72%,#fff),var(--heart-color) 58%,color-mix(in srgb,var(--heart-color) 68%,#49335f))!important;border-color:color-mix(in srgb,var(--heart-color) 65%,#49335f)!important}
-.skin-hearts .jar-heart:after{background:#ffffffaa!important}
-.skin-hearts .jar-empty{display:block;color:#a98acb;font-size:44px}
 @media(max-width:600px){#loginScreen .entry-y2k-art:before{left:0!important;top:13%!important;transform:scale(.82)!important}#loginScreen .entry-y2k-art:after{right:-10px!important;bottom:12%!important;transform:scale(.7)!important}}
 </style>
-
 </body></html>
 
 <style id="spotify-y2k-media-player">
