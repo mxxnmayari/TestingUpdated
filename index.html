@@ -653,7 +653,169 @@ body{background-color:#30204c;background-image:linear-gradient(90deg,#ffffff08 1
 #playlists .playlist-grid,#songs .song-grid{display:grid;grid-template-columns:1fr;gap:0}
 @media(max-width:720px){.section-intro-window .content-body{padding:19px 17px 22px}.independent-window>.titlebar,.section-intro-window>.titlebar{min-height:48px;padding:10px 12px;font-size:8px}.independent-body{padding:13px}.independent-list{gap:17px}}
 
-</style><meta name="description" content="Tangi's Little Haven — a retro Y2K little universe."></head>
+</style><meta name="description" content="Tangi's Little Haven — a retro Y2K little universe.">
+<style id="pastel-pixel-desktop-theme">
+/* Pastel pixel desktop refresh — presentation only; page content and inserts remain untouched. */
+:root{
+ --ink:#40375f;--deep:#d9d8f3;--violet:#7967b5;--lilac:#dcd8fa;
+ --pink:#f3d8ed;--ice:#c7e9f7;--silver:#f8f7ff;--line:#8b80b9;
+ --shadow:rgba(67,57,111,.20);
+}
+html,body{background:#e9e7fb!important;color:var(--ink)!important}
+body{
+ background-color:#e9e7fb!important;
+ background-image:
+  linear-gradient(90deg,#ffffff55 1px,transparent 1px),
+  linear-gradient(#ffffff55 1px,transparent 1px),
+  radial-gradient(circle at 15% 12%,#fff4c9 0 2px,transparent 3px),
+  radial-gradient(circle at 82% 23%,#c6eafa 0 2px,transparent 3px),
+  linear-gradient(135deg,#e9e7fb,#dce9fb 54%,#f4eafa)!important;
+ background-size:22px 22px,22px 22px,74px 74px,91px 91px,auto!important;
+}
+.login-screen{
+ background:
+  linear-gradient(90deg,#ffffff35 1px,transparent 1px),
+  linear-gradient(#ffffff35 1px,transparent 1px),
+  radial-gradient(ellipse at 18% 18%,#c8c2f0 0,transparent 37%),
+  radial-gradient(ellipse at 82% 76%,#c5e8f4 0,transparent 35%),
+  linear-gradient(135deg,#e8e5fb,#d8e9f8 60%,#f5e9f4)!important;
+ background-size:24px 24px,24px 24px,auto,auto,auto!important;
+}
+.login-screen.has-photo{background-color:#e8e5fb!important}
+.chrome,.content-window,.info-window,.login-card{
+ border:2px solid #fff!important;border-radius:4px!important;
+ background:linear-gradient(145deg,#fff 0%,#f0efff 48%,#dceafa 100%)!important;
+ box-shadow:inset 2px 2px #fff,inset -2px -2px #aaa4cc,5px 6px 0 #9188b3!important;
+}
+.titlebar,.player-head{
+ background:linear-gradient(90deg,#65579c 0%,#8278bd 52%,#8bbbd2 100%)!important;
+ color:#fff!important;border-bottom:2px solid #fff!important;
+ text-shadow:1px 1px #51447e!important;
+}
+.win-controls span{
+ background:linear-gradient(#fff,#d9e9f8)!important;color:#514878!important;
+ border:1px solid #fff!important;box-shadow:2px 2px #9188b3!important;
+}
+h1,.welcome h2,.section-heading{color:#514578!important;text-shadow:1px 2px #fff!important}
+.sub,.welcome p,.info-body,.content-body{color:#514a70!important}
+.kicker,.folder-nav-label,.field label,.editor label,.letter-heading{color:#7768a7!important}
+.field input,.editor input,.editor textarea,.pin-terminal input,.editor-select{
+ background:#fff!important;color:#41375f!important;border:2px solid #b8b0d9!important;
+ box-shadow:inset 1px 1px #e7e4f6!important;border-radius:3px!important;
+}
+.primary,.message-button{
+ background:linear-gradient(#a99bdd,#786db6)!important;color:#fff!important;
+ border:2px solid #fff!important;border-radius:3px!important;
+ box-shadow:2px 3px 0 #66588f!important;text-shadow:1px 1px #61528f!important;
+}
+.soft-button,.home-shortcuts button,.home-shortcuts button:hover{
+ background:linear-gradient(#fff,#dceafa)!important;color:#514878!important;
+ border:2px solid #fff!important;border-radius:3px!important;
+ box-shadow:2px 3px 0 #9c94bc!important;text-shadow:none!important;
+}
+.desktop{
+ background:
+  linear-gradient(90deg,#ffffff26 1px,transparent 1px),
+  linear-gradient(#ffffff26 1px,transparent 1px),
+  radial-gradient(ellipse at 12% 12%,#d5d1f3 0,transparent 33%),
+  radial-gradient(ellipse at 88% 75%,#c8e9f5 0,transparent 32%),
+  linear-gradient(135deg,#e9e7fb,#dce9fb 58%,#f4eafa)!important;
+ background-size:24px 24px,24px 24px,auto,auto,auto!important;
+}
+.desktop-top{color:#514878!important}
+.desktop-top .brand{color:#62588f!important;text-shadow:1px 1px #fff!important}
+.folder-nav{
+ border:2px solid #fff!important;border-radius:4px!important;
+ background:linear-gradient(145deg,#fdfcff,#e2e2f8 60%,#d7edf7)!important;
+ box-shadow:inset 2px 2px #fff,4px 5px 0 #a49abd!important;backdrop-filter:none!important;
+}
+.folder-nav-label{color:#766aa3!important}
+.folder-nav button{
+ color:#514878!important;background:linear-gradient(100deg,#fff,#e4e3fa 58%,#d9eef7)!important;
+ border:1px solid #fff!important;border-radius:3px!important;
+ box-shadow:inset 1px 1px #fff,2px 3px 0 #b0a8cc!important;text-shadow:none!important;
+}
+.folder-nav button:before{background:#9b8bd0!important;opacity:1!important}
+.folder-nav button:hover,.folder-nav button.active{
+ background:linear-gradient(100deg,#e5e1ff,#d2eafa 75%,#fff3c8)!important;
+ border-color:#fff!important;box-shadow:inset 1px 1px #fff,2px 3px 0 #897eb4!important;
+}
+.folder-meta{color:#8176a8!important}
+.welcome-art,.y2k-banner{
+ background:
+  radial-gradient(circle at 50% 42%,#fff 0,#f7f4ff 15%,#d7d5f5 43%,#bcdff0 75%,#a8cce2 100%)!important;
+ border:2px solid #fff!important;box-shadow:inset 0 0 0 2px #c5c0e4,4px 5px 0 #9c93b9!important;
+}
+.big-heart{filter:saturate(.7)!important}
+.window-grid .info-window{background:linear-gradient(145deg,#fff,#e8e7fb 65%,#d8edf7)!important}
+.content-window{background:linear-gradient(145deg,#fff,#eeedfc 52%,#dcecf7)!important}
+.content-body{background:linear-gradient(145deg,#fdfcff,#eeedfb 58%,#e0eff8)!important}
+.media-card,.song-card,.letter-window,.pop-message,.note-reveal,.guestbook-log,.custom-panel{
+ background:linear-gradient(145deg,#fff 0%,#e9e7fa 56%,#dceef8 100%)!important;
+ border:2px solid #fff!important;border-radius:4px!important;
+ box-shadow:inset 1px 1px #fff,3px 4px 0 #aaa2c8!important;
+}
+.media-card h3,.song-meta h3,.letter-window h3,.custom-panel h3{color:#5c5088!important}
+.song-card:before,.song-card:after{color:#7669a0!important;border-color:#b4acd1!important;background:linear-gradient(90deg,#fff,#e9e5fb,#dff1f8)!important}
+.mixtape-face,.mixtape-back{
+ background:linear-gradient(145deg,#fff,#eceafb 58%,#dcecf7)!important;
+ border:2px solid #fff!important;box-shadow:inset 1px 1px #fff,2px 3px 0 #aaa2c8!important;
+}
+.mixtape-back h3,.mixtape-back p,.letter,.letter-signature{color:#51466f!important}
+.album-art,.y2k-music-art{
+ background:linear-gradient(145deg,#fff4c9,#c8eafa 42%,#a89bd8 100%)!important;
+ border:2px solid #fff!important;box-shadow:2px 3px 0 #8f86b4!important;
+}
+.jar-visual,.guestbook-aside,.pin-terminal,.retro-loading{
+ background:linear-gradient(145deg,#fff,#e5e3fa 52%,#cdebf6)!important;
+ border:2px solid #fff!important;box-shadow:inset 1px 1px #fff,3px 4px 0 #aaa2c8!important;
+}
+.feeling,.tracker-item,.admin-list-item{
+ background:linear-gradient(145deg,#fff,#e7e6fa 65%,#e0f1f8)!important;
+ color:#51466f!important;border-color:#c1b9dc!important;
+}
+#guestbookLogPanel{background:linear-gradient(145deg,#4d4776,#646a9a 65%,#648ca8)!important;border-color:#fff!important;color:#fff!important}
+#guestbookLogPanel h3{color:#fff0bd!important}
+#guestbookWall .guestbook-log-item{background:#f5f4ff!important;color:#51466f!important;border-color:#c6c0df!important}
+#guestbookWall .guestbook-log-item .log-name{color:#66569a!important}
+#guestbookWall .guestbook-log-item .log-mood{color:#568ba6!important}
+#guestbookWall .guestbook-log-item time{color:#827a9e!important}
+.custom-tabs{background:linear-gradient(90deg,#e8e5fb,#d9edf8,#fff5d5)!important;border:2px solid #fff!important;box-shadow:2px 3px 0 #aaa2c8!important}
+.custom-tab{background:linear-gradient(#fff,#e3e2f8)!important;color:#5b5187!important;border:1px solid #fff!important;box-shadow:2px 2px 0 #aaa2c8!important}
+.custom-tab.active{background:linear-gradient(#c7e7f5,#a99bd8)!important;color:#fff!important;box-shadow:2px 2px 0 #8175ad!important}
+.taskbar{background:linear-gradient(90deg,#65579cdd,#7f9fc0ee)!important;color:#fff!important}
+.footer-note{color:#665b94!important;text-shadow:1px 1px #fff!important}
+.player-dock{
+ z-index:30!important;border:2px solid #fff!important;border-radius:4px!important;
+ background:linear-gradient(145deg,#fff,#e7e5fa 60%,#dcecf7)!important;
+ box-shadow:4px 5px 0 #8e85b4!important;
+}
+.player-dock.minimized{width:min(230px,calc(100vw - 32px))!important}
+.player-head{min-height:34px!important;padding:7px 9px!important}
+.player-head .close-modal{
+ display:grid!important;place-items:center!important;float:none!important;
+ width:25px!important;height:24px!important;padding:0!important;
+ border:1px solid #fff!important;border-radius:2px!important;
+ background:linear-gradient(#fff,#d9e9f8)!important;color:#514878!important;
+ box-shadow:2px 2px 0 #7c73a6!important;font:bold 17px Arial,sans-serif!important;
+}
+.player-body{background:linear-gradient(145deg,#fff,#e6e5f8)!important}
+.player-body iframe{display:block!important;width:100%!important;min-height:180px!important}
+/* Collapse the dock visually without removing the YouTube iframe from the document. */
+.player-dock.minimized .player-body{display:block!important;height:1px!important;min-height:0!important;padding:0!important;overflow:hidden!important;opacity:0!important;position:relative!important}
+.player-dock.minimized #playerEmbed{height:1px!important;overflow:hidden!important}
+.player-dock.minimized #playerEmbed iframe{position:absolute!important;left:-2px!important;top:0!important;width:1px!important;height:1px!important;min-height:1px!important;border:0!important}
+
+.player-mini{color:#514878!important}
+@media(max-width:720px){
+ .desktop{padding:12px 10px 24px!important}
+ .folder-nav{background:linear-gradient(145deg,#fff,#e4e3f8 60%,#d8edf7)!important}
+ .player-dock{right:10px!important;bottom:12px!important}
+ .player-dock.minimized{width:min(210px,calc(100vw - 20px))!important}
+}
+</style>
+
+</head>
 <body>
 <section id="loginScreen" class="login-screen"><div class="entry-y2k-art" aria-hidden="true"><span class="entry-disc"></span><span class="entry-cassette"><i></i><b></b></span><span class="entry-butterfly">✧</span><span class="entry-star entry-star-one">✦</span><span class="entry-star entry-star-two">✧</span><span class="entry-note">♫</span><span class="entry-orbit"></span></div><div class="chrome login-card"><div class="titlebar"><span>WELCOME.EXE — ACCESS PORTAL</span><div class="win-controls"><span>_</span><span>□</span><span>×</span></div></div><div class="login-inner"><div class="pixel" style="font-size:9px;color:#8054ad">LOGGED INTO: MY HEART'S HOMEPAGE</div><h1>Tangi's Little Haven</h1><p class="sub">System Status: Heartbeat synced with Tangi</p><form id="loginForm"><div class="field"><label for="userId">USER ID</label><input id="userId" autocomplete="username" placeholder="Enter your user ID" required></div><div class="field"><label for="password">PASSWORD</label><div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button type="button" class="password-toggle" id="togglePassword" aria-label="Show password">SHOW</button></div></div><button class="primary" type="submit" style="width:100%;margin-top:8px">ENTER THE HAVEN →</button><div id="loginError" class="error" aria-live="polite"></div></form><div class="hint" id="passwordHint">PASSWORD HINT: <b>Your favorite song. Lowercase, with a space.</b></div></div></div></section>
 <main id="desktop" class="desktop hidden"><div class="desktop-top"><span class="brand">TANGI'S LITTLE HAVEN // ONLINE</span><span id="clock">MY LITTLE CORNER OF THE INTERNET</span></div><div class="desktop-grid"><nav class="dock folder-nav" aria-label="Main navigation"><div class="folder-nav-label">YOUR LITTLE SPACE</div><button class="active" data-section="home"><span class="folder-tab"></span><span class="folder-name">Back to Haven</span><span class="folder-meta">01 / HOME</span></button><button data-section="why"><span class="folder-tab"></span><span class="folder-name">Open Love.exe</span><span class="folder-meta">02 / THE NOTE</span></button><button data-section="playlists"><span class="folder-tab"></span><span class="folder-name">Spotify.mp3</span><span class="folder-meta">03 / SOUNDTRACK</span></button><button data-section="songs"><span class="folder-tab"></span><span class="folder-name">Heartbeat.mp3</span><span class="folder-meta">04 / DEDICATED</span></button><button data-section="hearts"><span class="folder-tab"></span><span class="folder-name">Read_Me.txt</span><span class="folder-meta">05 / READ ME WHEN</span></button><button data-section="guestbook"><span class="folder-tab"></span><span class="folder-name">Send Love.msg</span><span class="folder-meta">07 / GUESTBOOK</span></button><button data-section="admin"><span class="folder-tab"></span><span class="folder-name">Customize</span><span class="folder-meta">08 / OWNER ONLY</span></button></nav><div class="workspace">
@@ -688,7 +850,6 @@ body{background-color:#30204c;background-image:linear-gradient(90deg,#ffffff08 1
 <div class="footer-note">TANGI'S LITTLE HAVEN</div></div></div></main>
 
 <div id="playerDock" class="player-dock hidden"><div class="player-head"><span>NOW PLAYING.EXE</span><button id="minimizePlayer" class="close-modal" aria-label="Minimize player">−</button></div><div id="playerBody" class="player-body"><div class="player-mini"><span id="playerLabel">Choose a song to play</span><button class="soft-button" id="hidePlayer">HIDE</button></div><div id="playerEmbed"></div></div></div>
-<button id="restorePlayer" class="restore-player" type="button" aria-label="Show music player">♫ NOW PLAYING</button>
 <div id="modalBackdrop" class="modal-backdrop hidden"><div class="chrome modal"><div class="titlebar"><span id="modalTitle">A LITTLE REMINDER.EXE</span><button id="modalClose" class="close-modal">×</button></div><div class="modal-body" id="modalBody"></div></div></div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
@@ -794,7 +955,19 @@ $('togglePassword').addEventListener('click',()=>{const p=$('password'),show=p.t
 $('loginForm').addEventListener('submit',e=>{e.preventDefault();if($('userId').value.trim()===CONFIG.recipientUserId&&$('password').value===CONFIG.recipientPassword){$('loginScreen').classList.add('hidden');$('desktop').classList.remove('hidden');}else{loginAttempts++;const err=$('loginError'),card=document.querySelector('.login-card');err.textContent='[ SYSTEM ERROR 403 // ACCESS DENIED ]';err.classList.remove('glitch');card.classList.remove('login-error-flash');void err.offsetWidth;err.classList.add('glitch');card.classList.add('login-error-flash');window.setTimeout(()=>card.classList.remove('login-error-flash'),700);$('passwordHint').innerHTML=loginAttempts===1?'HINT 01 // <b>Ariana Grande song title.</b>':'HINT 02 // <b>Yours Truly album.</b>';}});
 function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function allHeartMessages(){return feelings.flatMap(f=>f.messages.map((message,index)=>({key:f.id+'_'+index,feelingId:f.id,message})));}
-function renderFeelings(){ $('feelingGrid').innerHTML=feelings.map(f=>`<button class="feeling" data-feeling="${f.id}" style="--feeling:${f.color}"><span class="heart-dot">♥</span><span>${escapeHtml(f.name)}</span></button>`).join('');document.querySelectorAll('[data-feeling]').forEach(b=>b.addEventListener('click',()=>openFeeling(b.dataset.feeling)));$('heartCategory').innerHTML=feelings.map(f=>`<option value="${f.id}">${escapeHtml(f.name)}</option>`).join('');renderTracker();renderHeartAdmin();}
+function renderJarHearts(){
+ const jar=$('randomHeart');if(!jar)return;
+ const active=feelings.filter(f=>Array.isArray(f.messages)&&f.messages.length>0);
+ const slots=30,total=active.reduce((n,f)=>n+f.messages.length,0);
+ if(!total){jar.innerHTML='<span class="jar-empty" aria-hidden="true">♡</span>';return;}
+ const groups=active.map(f=>({feeling:f,count:Math.max(1,Math.floor(slots*f.messages.length/total))}));
+ let used=groups.reduce((n,g)=>n+g.count,0);
+ while(used>slots){const g=groups.find(x=>x.count>1);if(!g)break;g.count--;used--;}
+ while(used<slots){groups.sort((a,b)=>b.feeling.messages.length-a.feeling.messages.length);groups[0].count++;used++;}
+ const hearts=groups.flatMap(g=>Array.from({length:g.count},()=>({color:g.feeling.color,name:g.feeling.name})));
+ jar.innerHTML=hearts.map((h,i)=>`<span class="jar-heart" aria-hidden="true" title="${escapeHtml(h.name)}" style="--heart-color:${h.color};--heart-index:${i};left:${5+(i%5)*38}px;top:${20+Math.floor(i/5)*36}px"></span>`).join('');
+}
+function renderFeelings(){ $('feelingGrid').innerHTML=feelings.map(f=>`<button class="feeling" data-feeling="${f.id}" style="--feeling:${f.color}"><span class="heart-dot">♥</span><span>${escapeHtml(f.name)}</span></button>`).join('');document.querySelectorAll('[data-feeling]').forEach(b=>b.addEventListener('click',()=>openFeeling(b.dataset.feeling)));$('heartCategory').innerHTML=feelings.map(f=>`<option value="${f.id}">${escapeHtml(f.name)}</option>`).join('');renderJarHearts();renderTracker();renderHeartAdmin();}
 function renderTracker(){const total=feelings.reduce((n,f)=>n+f.messages.length,0);$('heartTracker').innerHTML=feelings.map(f=>{const count=readMessages.filter(k=>k.startsWith(f.id+'_')).length;return `<div class="tracker-item"><b style="color:${f.color}">${escapeHtml(f.name)}</b>${openedCounts[f.id]||0} total opens · ${count}/${f.messages.length} in this cycle</div>`}).join('')+`<div class="tracker-item"><b>ALL NOTES</b>${readMessages.length} / ${total} read in current round</div>`;}
 $('resetHeartTracker').addEventListener('click',async()=>{if(!confirm('Restart the Heart Tracker from the beginning? This clears read progress and open counts only. All heart messages will stay.'))return;readMessages=[];openedCounts={};localStorage.setItem('havenReadMessages','[]');localStorage.setItem('havenOpenedCounts','{}');renderTracker();const ok=await syncCloud();if(ok)$('adminStatus').textContent='HEART TRACKER RESET // Ready for a fresh first run.';});
 function openFeeling(id=null){let matching;if(id){const f=feelings.find(x=>x.id===id);if(!f||!f.messages.length)return;let unread=f.messages.map((message,index)=>({key:f.id+'_'+index,feelingId:f.id,message})).filter(m=>!readMessages.includes(m.key));if(!unread.length){readMessages=readMessages.filter(k=>!k.startsWith(f.id+'_'));unread=f.messages.map((message,index)=>({key:f.id+'_'+index,feelingId:f.id,message}));}matching=unread;}else{let pool=allHeartMessages();if(!pool.length)return;let unread=pool.filter(m=>!readMessages.includes(m.key));if(!unread.length){readMessages=[];unread=pool;}matching=unread;}
@@ -805,7 +978,7 @@ function youtubeEmbedUrl(url){const id=youtubeId(url);return id?`https://www.you
 function spotifyEmbedUrl(url){try{const u=new URL(url);if(!/(^|\.)spotify\.com$/.test(u.hostname))return null;const match=u.pathname.match(/\/(track|playlist|album|episode|show)\/([A-Za-z0-9]+)/);return match?`https://open.spotify.com/embed/${match[1]}/${match[2]}?utm_source=generator`:null;}catch{return null;}}
 async function fillYoutubeMetadata(){const url=$('newSongUrl').value.trim(),id=youtubeId(url);if(!id)return;$('youtubeMetaStatus').textContent='READING TRACK DETAILS...';try{const response=await fetch('https://www.youtube.com/oembed?url='+encodeURIComponent('https://www.youtube.com/watch?v='+id)+'&format=json');if(!response.ok)throw new Error('Metadata unavailable');const data=await response.json();$('newSongTitle').value=data.title||$('newSongTitle').value;$('newSongArtist').value=data.author_name||$('newSongArtist').value;$('youtubeMetaStatus').textContent='Song details filled in. A Y2K music sticker will be used as the cover.';}catch{$('youtubeMetaStatus').textContent='Could not auto-read this link. You can still type the title and artist manually.';}}
 $('newSongUrl').addEventListener('change',fillYoutubeMetadata);$('newSongUrl').addEventListener('paste',()=>setTimeout(fillYoutubeMetadata,250));
-function playSong(song){const src=youtubeEmbedUrl(song.url);if(!src){alert('Please add a valid YouTube video link for this song.');return;}$('playerLabel').textContent=song.title+' — '+song.artist;$('playerEmbed').innerHTML=`<iframe title="YouTube player" src="${src}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen playsinline referrerpolicy="strict-origin-when-cross-origin"></iframe>`;$('playerDock').classList.remove('hidden','player-hidden','minimized');$('playerBody').classList.remove('hidden');$('restorePlayer').classList.remove('visible');$('minimizePlayer').textContent='−';}
+function playSong(song){const src=youtubeEmbedUrl(song.url);if(!src){alert('Please add a valid YouTube video link for this song.');return;}$('playerLabel').textContent=song.title+' — '+song.artist;$('playerEmbed').innerHTML=`<iframe title="YouTube player" src="${src}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen playsinline referrerpolicy="strict-origin-when-cross-origin"></iframe>`;$('playerDock').classList.remove('hidden');$('playerBody').classList.remove('hidden');$('playerDock').classList.remove('minimized');}
 function renderLetters(){
  const list=$('letterList');
  list.innerHTML=letters.length?letters.map((l,i)=>`<article class="letter-notification" data-letter-card="${i}"><div class="letter-notice-view"><div class="notice-windowbar"><span>MESSAGE_CENTER.EXE</span><span class="notice-lights">● ● ●</span></div><div class="notice-content"><div class="notice-envelope" aria-hidden="true"><span>✉</span></div><div class="notice-copy"><div class="notice-eyebrow">INCOMING TRANSMISSION // ${String(i+1).padStart(2,'0')}</div><h3>You have a new message:</h3><p>One little letter is waiting for you.</p><div class="notice-recipient">TO: ${escapeHtml(l.recipient||'You')}</div></div></div><div class="notice-actions"><button type="button" class="notice-ok" data-letter-ok="${i}">OK</button><button type="button" class="notice-read" data-letter-read="${i}">READ <span>↗</span></button></div></div><div class="letter-open-view hidden"><div class="notice-windowbar"><span>LETTER_${String(i+1).padStart(2,'0')}.TXT</span><span class="notice-lights">● ● ●</span></div><div class="opened-letter-paper"><div class="opened-letter-label">A LITTLE LETTER FOR YOU</div><div class="letter-dear">Dear ${escapeHtml(l.recipient||'You')},</div><div class="letter">${escapeHtml(l.body||'')}</div>${l.signature?`<div class="letter-signature">${escapeHtml(l.signature)}</div>`:''}</div><div class="opened-letter-footer"><span>END OF MESSAGE // KEEP THIS CLOSE</span><button type="button" class="notice-close" data-letter-close="${i}">CLOSE ×</button></div></div></article>`).join(''):'<div class="letter-empty"><div class="empty-envelope">✉</div><h3>NO NEW MESSAGES</h3><p>Your little letters will appear here when they arrive.</p></div>';
@@ -870,7 +1043,7 @@ $('addPlaylist').addEventListener('click',async()=>{const url=$('newPlaylistUrl'
 $('addHeartMessage').addEventListener('click',()=>{const f=feelings.find(x=>x.id===$('heartCategory').value),message=$('newHeartMessage').value;if(!f||!message.trim())return;f.messages.push(message);persist();renderFeelings();$('newHeartMessage').value='';$('adminStatus').textContent='Heart note added locally. Confirming online save…';});
 function renderEverything(){renderLetters();renderFeelings();renderSongs();renderPlaylists();renderDescriptions();}
 await authReady;if(firebaseConfigured)await loadCloud();renderEverything();void renderGuestbookLog();
-$('minimizePlayer').addEventListener('click',()=>{const minimized=$('playerDock').classList.toggle('minimized');$('minimizePlayer').textContent=minimized?'□':'−';});$('hidePlayer').addEventListener('click',()=>{$('playerDock').classList.add('player-hidden');$('restorePlayer').classList.add('visible');});$('restorePlayer').addEventListener('click',()=>{$('playerDock').classList.remove('player-hidden');$('restorePlayer').classList.remove('visible');});
+$('minimizePlayer').addEventListener('click',()=>{const dock=$('playerDock'),body=$('playerBody'),button=$('minimizePlayer');const minimized=dock.classList.toggle('minimized');button.textContent=minimized?'□':'−';button.setAttribute('aria-label',minimized?'Restore player':'Minimize player');button.setAttribute('title',minimized?'Restore player':'Minimize player');});$('hidePlayer').addEventListener('click',()=>$('playerDock').classList.add('hidden'));
 $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:'short',day:'numeric'}).format(new Date()).toUpperCase();
 
 /* Independent desktop windows across every public folder */
@@ -924,16 +1097,13 @@ $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:
 })();
 
 </script>
-<style id="heartbeat-player-background-playback-controls">
-/* Minimize/hide the player chrome without removing or display:none-ing the YouTube iframe. */
-.player-dock.minimized{width:190px!important}
-.player-dock.minimized .player-body{display:block!important;height:1px!important;min-height:1px!important;padding:0!important;margin:0!important;overflow:hidden!important;position:relative!important}
-.player-dock.minimized .player-mini{display:none!important}
-.player-dock.minimized #playerEmbed{display:block!important;width:1px!important;height:1px!important;overflow:hidden!important;position:absolute!important;right:0!important;bottom:0!important}
-.player-dock.minimized #playerEmbed iframe{display:block!important;width:1px!important;height:1px!important;min-width:1px!important;min-height:1px!important;opacity:.01!important;position:absolute!important;right:0!important;bottom:0!important;border:0!important}
-.player-dock.player-hidden{display:block!important;opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:translateX(150%)!important}
-.restore-player{display:none;position:fixed;right:16px;bottom:18px;z-index:30;padding:9px 12px;border:1px solid #fff;border-radius:7px;color:#fff;background:linear-gradient(90deg,#54308b,#d77dc9);box-shadow:0 4px 12px #17082c66;font:8px Silkscreen,monospace}
-.restore-player.visible{display:block}
+<style id="intro-clouds-only">
+#loginScreen .entry-y2k-art{display:block!important;position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;overflow:hidden!important}
+#loginScreen .entry-y2k-art>*{display:none!important}
+#loginScreen .entry-y2k-art:before,#loginScreen .entry-y2k-art:after{content:""!important;display:block!important;position:absolute!important;width:64px!important;height:18px!important;background:#fff9e9!important;image-rendering:pixelated!important;opacity:.94!important;box-shadow:-12px 5px 0 -3px #fff9e9,0 -9px 0 -3px #fff9e9,12px -14px 0 -3px #fff9e9,25px -9px 0 -3px #fff9e9,38px 0 0 -3px #fff9e9,50px 5px 0 -3px #fff9e9,12px 9px 0 -3px #fff9e9,30px 9px 0 -3px #fff9e9,3px 20px 0 -7px #fff9e9!important;filter:drop-shadow(3px 4px 0 #8580ad)!important}
+#loginScreen .entry-y2k-art:before{left:8%!important;top:17%!important;transform:scale(1.2)!important}
+#loginScreen .entry-y2k-art:after{right:9%!important;bottom:17%!important;transform:scale(.9)!important;opacity:.82!important}
+@media(max-width:600px){#loginScreen .entry-y2k-art:before{left:0!important;top:13%!important;transform:scale(.82)!important}#loginScreen .entry-y2k-art:after{right:-10px!important;bottom:12%!important;transform:scale(.7)!important}}
 </style>
 </body></html>
 
@@ -1109,7 +1279,7 @@ $('clock').textContent=new Intl.DateTimeFormat(undefined,{weekday:'short',month:
 .skin-hearts .jar-heart:after{content:"";position:absolute;left:9px;top:8px;width:8px;height:5px;background:#fff9;box-shadow:7px 0 #fff5}
 .skin-hearts .jar-heart:nth-child(5n+1){left:5px}.skin-hearts .jar-heart:nth-child(5n+2){left:43px}.skin-hearts .jar-heart:nth-child(5n+3){left:81px}.skin-hearts .jar-heart:nth-child(5n+4){left:119px}.skin-hearts .jar-heart:nth-child(5n){left:157px}
 .skin-hearts .jar-heart:nth-child(-n+5){top:20px}.skin-hearts .jar-heart:nth-child(n+6):nth-child(-n+10){top:56px}.skin-hearts .jar-heart:nth-child(n+11):nth-child(-n+15){top:92px}.skin-hearts .jar-heart:nth-child(n+16):nth-child(-n+20){top:128px}.skin-hearts .jar-heart:nth-child(n+21):nth-child(-n+25){top:164px}.skin-hearts .jar-heart:nth-child(n+26){top:198px}
-.skin-hearts .jar-heart:nth-child(3n+1){background:linear-gradient(145deg,#ffd4e6,#ff76a8 58%,#c83c75)!important}.skin-hearts .jar-heart:nth-child(3n+2){background:linear-gradient(145deg,#fff0b8,#ffc84f 58%,#d88a32)!important}.skin-hearts .jar-heart:nth-child(3n){background:linear-gradient(145deg,#e7d5ff,#ad7ce8 58%,#7149b1)!important}
+.skin-hearts .jar-heart{background:linear-gradient(145deg,color-mix(in srgb,var(--heart-color) 72%,#fff),var(--heart-color) 58%,color-mix(in srgb,var(--heart-color) 68%,#49335f))!important;border-color:color-mix(in srgb,var(--heart-color) 65%,#49335f)!important}
 .skin-hearts .jar-hint{position:static!important;display:inline-block;margin:14px auto 0;padding:7px 9px;border:2px solid #fff;border-radius:2px;background:linear-gradient(#fff,#dce7f7);color:#4c5e85;font:7px Silkscreen,monospace;box-shadow:2px 3px 0 #8d83a4}
 .skin-hearts .feeling{border:2px solid #fff!important;border-radius:2px!important;background:linear-gradient(#fff,#dbe6f5)!important;box-shadow:inset 1px 1px #fff,3px 3px 0 #a69bb5!important;color:#4c4265!important;font:8px Silkscreen,monospace!important}
 .skin-hearts .feeling:hover{transform:translateY(-2px);box-shadow:inset 1px 1px #fff,3px 5px 0 #8d83a4!important}
