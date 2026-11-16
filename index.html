@@ -1,95 +1,200 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Socialverse — AU Social Simulator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#a99be8">
+<title>Mooniverse Social — AU Creator Studio</title>
 <style>
-:root{--ink:#241b3b;--muted:#796e91;--line:#e8e1f3;--paper:#fff;--lav:#eee8ff;--violet:#7654c8;--deep:#39275f;--blue:#dff1ff;--sky:#77b8e8;--yellow:#fff3c7;--pink:#f9e6f1;--shadow:0 18px 55px #38235d18}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 10% 0%,#eee8ff 0,transparent 28%),radial-gradient(circle at 90% 20%,#e3f4ff 0,transparent 24%),#f8f6fc;color:var(--ink);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-button,input,textarea,select{font:inherit}button{cursor:pointer;border:0} .top{height:66px;padding:0 26px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:#ffffffd9;backdrop-filter:blur(14px);position:sticky;top:0;z-index:20}
-.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.08em}.brandmark{width:34px;height:34px;border-radius:12px;background:linear-gradient(135deg,#7b5bd0,#9dcdf3);display:grid;place-items:center;color:white;font-size:19px;box-shadow:0 5px 15px #7654c833}.brand small{display:block;font-size:9px;letter-spacing:.2em;color:var(--muted);font-weight:700}
-.top-actions{display:flex;gap:8px;align-items:center}.pill,.btn{border:1px solid var(--line);background:white;color:var(--deep);border-radius:12px;padding:9px 13px;font-weight:750}.btn.primary{background:var(--deep);color:white;border-color:var(--deep)}.btn.soft{background:var(--lav);border-color:transparent}.btn:hover,.pill:hover{transform:translateY(-1px);box-shadow:0 6px 15px #35205214}
-.layout{max-width:1450px;margin:auto;padding:24px;display:grid;grid-template-columns:minmax(250px,310px) minmax(340px,1fr) minmax(270px,330px);gap:20px;align-items:start}
-.panel{background:#ffffffdc;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}.panel-head{padding:17px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.panel-head h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0}.eyebrow{font-size:10px;letter-spacing:.18em;color:var(--muted);font-weight:850;text-transform:uppercase}
-.left{position:sticky;top:86px}.project{padding:18px}.project-name{font-size:21px;font-weight:900;letter-spacing:-.04em;margin:4px 0}.project-sub{color:var(--muted);font-size:12px}.platforms{padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:7px}.app{display:flex;align-items:center;gap:9px;padding:10px;border:1px solid transparent;border-radius:14px;background:#faf9fd;color:var(--ink);text-align:left;font-weight:800}.app.active{background:var(--lav);border-color:#d8cafa}.app-icon{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:16px;background:white}.app span:last-child{font-size:12px}.nav-bottom{padding:14px 17px;border-top:1px solid var(--line);display:flex;gap:7px;flex-wrap:wrap}
-.center{min-width:0}.center .panel{margin-bottom:16px}.phone-wrap{padding:18px;display:flex;justify-content:center;background:linear-gradient(140deg,#f0eaff,#e5f4ff 55%,#fff5d9)}
-.phone{width:min(100%,390px);min-height:720px;border:9px solid #29233a;border-radius:38px;background:#fff;box-shadow:0 20px 45px #281a4433;overflow:hidden;position:relative}.phone-top{height:27px;background:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 17px;font-size:10px;font-weight:800}.phone-screen{min-height:675px;background-size:cover;background-position:center;position:relative}.phone-screen:before{content:"";position:absolute;inset:0;background:#ffffff26;pointer-events:none}.phone-content{position:relative;z-index:1;padding:18px 16px 22px;min-height:675px}.phone-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.phone-time{font-size:11px;font-weight:850}.phone-title{font-size:22px;font-weight:950;letter-spacing:-.06em}.wallpaper-hint{font-size:10px;color:#5f5278;margin-top:3px}.widget{border:1px solid #ffffffa6;background:#ffffffc9;backdrop-filter:blur(12px);padding:13px;border-radius:17px;margin-bottom:18px;box-shadow:0 7px 20px #2c1c4510}.widget strong{font-size:20px;display:block}.widget small{color:var(--muted)}.home-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px 8px;margin-top:23px}.home-app{background:transparent;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;font-weight:800}.home-app .app-icon{width:54px;height:54px;border-radius:17px;font-size:25px;box-shadow:0 5px 15px #34234a22;border:1px solid #ffffffaa}.dock{position:absolute;bottom:13px;left:13px;right:13px;border-radius:22px;padding:10px;background:#ffffffa8;backdrop-filter:blur(12px);display:flex;justify-content:space-around}
-.statusbar{display:flex;justify-content:space-between;font-size:10px;color:#625878;font-weight:800;margin-bottom:12px}.screen-title{font-size:19px;font-weight:950;margin:8px 0 12px}.screen-sub{color:var(--muted);font-size:11px}.feed-post{background:white;border:1px solid #ece8f3;border-radius:15px;padding:12px;margin:10px 0;box-shadow:0 5px 16px #30204a0a}.post-user{display:flex;align-items:center;gap:9px;font-weight:850;font-size:12px}.avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#c9b7ff,#9bd6f6);display:grid;place-items:center;overflow:hidden;font-weight:900;color:#fff}.avatar img{width:100%;height:100%;object-fit:cover}.post-text{font-size:12px;margin:10px 0}.post-image{width:100%;max-height:220px;object-fit:cover;border-radius:11px;margin-top:8px}.post-actions{display:flex;gap:14px;color:#75698d;font-size:11px;margin-top:10px}.stories{display:flex;gap:10px;overflow:auto;padding:4px 0 8px}.story{min-width:54px;text-align:center;font-size:9px;color:#6d6282}.story .avatar{width:48px;height:48px;margin:0 auto 4px;border:2px solid #a58be6;padding:2px}.screen-nav{display:flex;justify-content:space-around;border-top:1px solid var(--line);padding:11px 4px;color:#726787;font-size:17px;margin-top:12px}.chat-row{display:flex;gap:10px;padding:12px 4px;border-bottom:1px solid #eee9f5;align-items:center}.chat-row p{margin:2px 0;color:var(--muted);font-size:11px}.bubble{padding:9px 12px;border-radius:15px;background:#f0ebfa;max-width:82%;font-size:12px;margin:7px 0}.bubble.mine{background:#7455c5;color:#fff;margin-left:auto}.chat-compose{display:flex;gap:7px;margin-top:12px}.chat-compose input{min-width:0;flex:1;border:1px solid var(--line);border-radius:20px;padding:10px}
-.editor{padding:17px}.field{display:flex;flex-direction:column;gap:5px;margin-bottom:11px}.field label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:var(--muted)}.field input,.field textarea,.field select{border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px;color:var(--ink);width:100%;outline:none}.field textarea{min-height:76px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#a38bdc;box-shadow:0 0 0 3px #eee8ff}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.switchrow{display:flex;align-items:center;justify-content:space-between;padding:9px 0;font-size:12px}.switchrow input{accent-color:var(--violet)}.muted{color:var(--muted)}.notice{padding:12px 14px;border-radius:14px;background:var(--yellow);font-size:11px;color:#66532a;margin:12px 0}.empty{padding:25px;text-align:center;color:var(--muted);font-size:12px}.toast{position:fixed;right:22px;top:78px;z-index:50;background:#30234d;color:white;border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);opacity:0;transform:translateY(-8px);transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}.modal-back{position:fixed;inset:0;background:#1c143b66;display:none;align-items:center;justify-content:center;padding:18px;z-index:60}.modal-back.show{display:flex}.modal{width:min(560px,100%);max-height:85vh;overflow:auto;background:white;border-radius:22px;padding:20px;box-shadow:0 25px 80px #130c2c55}.modal h3{margin:0 0 14px}.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}.notification{position:fixed;right:18px;bottom:18px;width:min(330px,calc(100% - 36px));z-index:45;background:#fff;border:1px solid var(--line);box-shadow:0 16px 45px #2d1d4a30;border-radius:18px;padding:13px;display:none}.notification.show{display:block;animation:pop .3s ease}@keyframes pop{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}.notification-top{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-weight:800}.notification p{font-size:12px;margin:8px 0 0}.editor-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}.tab{padding:7px 10px;background:#f5f1fb;border-radius:9px;color:#6d5b8d;font-size:11px;font-weight:800}.tab.active{background:var(--deep);color:#fff}
-@media(max-width:1050px){.layout{grid-template-columns:240px minmax(320px,1fr)}.right{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px}.right .panel{margin:0}}@media(max-width:720px){.top{padding:0 13px}.top-actions .optional{display:none}.layout{display:flex;flex-direction:column;padding:12px;gap:12px}.left,.center,.right{width:100%;position:static}.left{order:0}.center{order:1}.right{order:2;display:block}.right .panel{margin-bottom:12px}.platforms{grid-template-columns:repeat(4,1fr)}.app{justify-content:center;padding:8px}.app span:last-child{display:none}.project{padding:13px}.phone{min-height:690px}.phone-screen,.phone-content{min-height:645px}.phone-wrap{padding:10px}.top-actions .btn{padding:8px}.top .brand small{display:none}}
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap');
+:root{
+ --ink:#51466f;--muted:#8c83a4;--violet:#8e7bd2;--violet-deep:#6e5bb3;
+ --lav:#e8e1ff;--lav2:#f4f0ff;--sky:#ccecff;--blue:#83b9e8;
+ --yellow:#fff0b9;--butter:#fff8df;--pink:#f5d8e8;--beige:#f4eadb;
+ --paper:#fffdf8;--line:#ded5ef;--shadow:0 12px 35px #7565a51c;
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:Nunito, sans-serif;background:
+ radial-gradient(circle at 12% 12%,#ffffffa8 0 2px,transparent 3px) 0 0/26px 26px,
+ radial-gradient(circle at 80% 30%,#ffffff8c 0 2px,transparent 3px) 0 0/31px 31px,
+ linear-gradient(135deg,#e6ddff 0%,#d8efff 42%,#fff2c9 100%);min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.site-shell{max-width:1240px;margin:26px auto;padding:0 18px}
+.masthead{position:relative;overflow:hidden;border:1px solid #fff;background:linear-gradient(110deg,#8b79cf,#a99ce5 48%,#8cc9eb);border-radius:18px 18px 8px 8px;padding:24px 30px 22px;box-shadow:var(--shadow);color:#fff}
+.masthead:before,.masthead:after{content:"";position:absolute;border:1px solid #ffffff65;border-radius:50%;width:250px;height:250px;right:5%;top:-160px;box-shadow:0 0 0 18px #ffffff0c,0 0 0 38px #ffffff0a}
+.masthead:after{width:140px;height:140px;right:22%;top:60px}
+.brandline{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1}
+.brand{font-family:"Playfair Display",serif;font-weight:800;font-size:clamp(28px,4vw,43px);letter-spacing:-1.5px;text-shadow:0 2px 0 #6b5aa8}
+.brand small{display:block;font:500 11px "DM Mono",monospace;letter-spacing:2px;text-transform:uppercase;margin-top:4px;opacity:.9}
+.top-actions{display:flex;gap:8px;align-items:center}
+.pill{border:1px solid #ffffff85;background:#ffffff22;color:white;padding:8px 13px;border-radius:30px;font-size:12px;font-weight:800}
+.nav{display:flex;gap:7px;flex-wrap:wrap;padding:12px 12px 0;background:#fff9;border:1px solid white;border-top:0;border-radius:0 0 12px 12px}
+.nav button{border:1px solid #d8cdef;border-bottom:0;background:linear-gradient(#fff,#eee8ff);color:#7765ac;padding:10px 15px 9px;border-radius:9px 9px 0 0;font-weight:900;font-size:12px;letter-spacing:.2px}
+.nav button.active{background:var(--paper);color:var(--violet-deep);position:relative;top:1px}
+.layout{display:grid;grid-template-columns:245px minmax(0,1fr) 230px;gap:15px;margin-top:16px;align-items:start}
+.panel{background:#fffdf8eF;border:1px solid #fff;outline:1px solid #dcd2ef;border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+.panel-head{padding:9px 12px;background:linear-gradient(90deg,#e6ddff,#d7efff);border-bottom:1px solid #d9d0eb;color:#68599c;font-weight:900;font-size:12px;letter-spacing:.4px}
+.panel-body{padding:13px}
+.profile-top{display:flex;gap:11px;align-items:center}
+.avatar{width:76px;height:76px;border-radius:12px;background:linear-gradient(145deg,#f4d8e9,#d8eaff 55%,#ffe9ae);border:3px solid white;outline:1px solid #d9cde9;display:grid;place-items:center;font-size:30px;flex-shrink:0}
+.profile-name{font-weight:900;font-size:17px}
+.handle{font:11px "DM Mono",monospace;color:var(--muted);margin-top:3px}
+.status{display:inline-flex;align-items:center;gap:5px;margin-top:8px;background:#f0ebff;border:1px dashed #b6a9e2;border-radius:30px;padding:4px 8px;font-size:10px;font-weight:800;color:#7664b2}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin:13px 0}
+.stat{background:#f8f4ff;border:1px solid #e7def7;border-radius:8px;text-align:center;padding:8px 3px}
+.stat b{display:block;font-size:15px}.stat span{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.soft-button{width:100%;border:1px solid #d5cbed;background:linear-gradient(#fff,#f1edff);color:#7664b2;border-radius:7px;padding:8px;font-weight:900;font-size:11px;margin-top:6px}
+.menu-list{display:grid;gap:4px}
+.menu-list button{border:0;text-align:left;background:transparent;padding:8px 9px;border-radius:7px;color:#746991;font-size:12px;font-weight:800}
+.menu-list button:hover,.menu-list button.selected{background:#eee9ff;color:#6552a6}
+.menu-list span{display:inline-block;width:24px}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font:10px "DM Mono",monospace;background:#fff3c9;border:1px solid #f1e2a8;padding:4px 7px;border-radius:5px;color:#9b8350}
+.center{min-width:0}
+.welcome{padding:17px 18px;background:linear-gradient(115deg,#fffdf7,#f2efff 60%,#e8f6ff);margin-bottom:13px}
+.welcome h1{font:800 clamp(21px,3vw,29px) "Playfair Display",serif;margin:0 0 5px;color:#66569f}
+.welcome p{font-size:12px;line-height:1.65;color:#82789b;margin:0;max-width:650px}
+.welcome-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.date-chip{white-space:nowrap;font:10px "DM Mono",monospace;color:#897cb0;background:#fff;border:1px solid #e6def3;border-radius:20px;padding:7px 10px}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:17px 2px 9px}
+.section-title h2{font:800 17px "Playfair Display",serif;margin:0;color:#65549d}
+.section-title small{font:10px "DM Mono",monospace;color:#9b91ad}
+.platform-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.platform{border:1px solid #e2d9ef;background:#fff;border-radius:10px;padding:11px 9px;text-align:left;min-height:104px;transition:.15s;box-shadow:0 4px 12px #7461a00b}
+.platform:hover{transform:translateY(-2px);box-shadow:0 8px 18px #7461a018}
+.platform .p-icon{width:33px;height:33px;border-radius:10px;display:grid;place-items:center;font-size:17px;margin-bottom:8px}
+.platform b{display:block;font-size:12px}.platform small{font-size:9px;color:#9a91aa}
+.ig .p-icon{background:#f9e1ee}.fb .p-icon{background:#deedff}.x .p-icon{background:#ece9f4}.tt .p-icon{background:#dff7f6}.th .p-icon{background:#eee8ff}.be .p-icon{background:#fff1c9}.im .p-icon{background:#e0f5e8}.phone .p-icon{background:#f9e7d6}
+.composer{margin-top:13px}
+.compose-top{display:flex;gap:10px;align-items:center}
+.compose-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#d9cfff,#c7edff);display:grid;place-items:center}
+.compose-input{flex:1;border:1px solid #e4dcef;border-radius:8px;background:#fff;padding:10px 12px;color:#a39ab3;font-size:12px}
+.compose-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:11px}
+.compose-actions button{border:1px solid #e5ddef;background:#faf8ff;color:#7b6cac;padding:6px 10px;border-radius:20px;font-size:10px;font-weight:800}
+.feed-card{margin-top:12px}
+.post-head{display:flex;align-items:center;gap:9px}
+.post-head .avatar{width:37px;height:37px;border-radius:50%;font-size:16px}
+.post-head b{font-size:12px}.post-head small{display:block;font-size:10px;color:#9c94aa}
+.post-text{font-size:12px;line-height:1.65;margin:12px 0;color:#665d78}
+.post-art{height:145px;border-radius:8px;background:linear-gradient(135deg,#d8cfff,#c9eaff 55%,#fff0bd);display:grid;place-items:center;color:#7767ad;font:800 24px "Playfair Display",serif;text-align:center;padding:15px}
+.post-footer{display:flex;justify-content:space-between;border-top:1px solid #eee8f4;margin-top:12px;padding-top:9px;color:#958ba9;font-size:10px}
+.right-card{margin-bottom:13px}
+.activity{display:grid;gap:11px}
+.activity-item{display:flex;gap:8px;align-items:flex-start;font-size:11px;line-height:1.45;color:#766d89}
+.dot{width:8px;height:8px;background:#b8a9ed;border-radius:50%;margin-top:4px;flex-shrink:0}
+.friend-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.friend{background:#faf7ff;border:1px solid #eee6f6;border-radius:8px;padding:8px;text-align:center;font-size:10px;font-weight:800}
+.friend .avatar{width:42px;height:42px;margin:0 auto 5px;font-size:17px;border-radius:9px}
+.footer{text-align:center;padding:25px 10px;color:#9489ad;font:10px "DM Mono",monospace}
+@media(max-width:980px){.layout{grid-template-columns:220px minmax(0,1fr)}.right-col{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:12px}.right-card{margin:0}}
+@media(max-width:650px){.site-shell{margin:10px auto;padding:0 9px}.masthead{padding:18px 17px}.brandline{align-items:flex-start}.top-actions{display:none}.nav{gap:4px;padding:9px 7px 0}.nav button{padding:8px 9px;font-size:10px}.layout{display:flex;flex-direction:column}.left-col,.center,.right-col{width:100%}.left-col{order:0}.center{order:1}.right-col{order:2;display:grid;grid-template-columns:1fr 1fr}.profile-top{align-items:center}.platform-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.welcome-row{align-items:flex-start;flex-direction:column}.date-chip{white-space:normal}.panel-body{padding:12px}.post-art{height:120px}}
 </style>
 </head>
 <body>
-<header class="top">
- <div class="brand"><div class="brandmark">✦</div><div>SOCIALVERSE<small>YOUR AU. YOUR UNIVERSE.</small></div></div>
- <div class="top-actions"><span class="pill optional" id="saveState">● Saved locally</span><button class="btn optional" id="importBtn">Import</button><button class="btn optional" id="exportBtn">Export project</button><button class="btn primary" id="newPostBtn">＋ New post</button></div>
+<div class="site-shell">
+<header class="masthead">
+ <div class="brandline">
+  <div class="brand">Mooniverse Social<small>your little universe of fictional lives ✦ AU creator studio</small></div>
+  <div class="top-actions"><button class="pill">✧ Help</button><button class="pill">Save project</button></div>
+ </div>
 </header>
-<main class="layout">
- <aside class="left panel">
-  <div class="project"><div class="eyebrow">Current universe</div><div class="project-name" id="projectNameLabel">Untitled AU</div><div class="project-sub">A little world made of posts, messages & plot twists.</div></div>
-  <div class="panel-head"><h2>Applications</h2><span class="eyebrow">07 apps</span></div>
-  <div class="platforms" id="platformList"></div>
-  <div class="nav-bottom"><button class="btn soft" id="homeBtn">⌂ Phone home</button><button class="btn" id="editorBtn">✎ Editor</button><button class="btn" id="settingsBtn">⚙ Settings</button></div>
- </aside>
- <section class="center">
-  <div class="panel"><div class="panel-head"><h2 id="viewHeading">Your phone</h2><span class="eyebrow" id="viewHint">LIVE PREVIEW</span></div><div class="phone-wrap"><div class="phone"><div class="phone-top"><span id="phoneClock">9:41</span><span>●●●  ▰</span></div><div class="phone-screen" id="phoneScreen"><div class="phone-content" id="phoneContent"></div></div></div></div></div>
-  <div class="panel" id="workspacePanel"><div class="panel-head"><h2>Quick actions</h2><span class="eyebrow">CREATOR TOOLS</span></div><div class="editor"><div class="two"><button class="btn soft" id="editProfileBtn">Edit active profile</button><button class="btn soft" id="wallpaperBtn">Change wallpaper</button><button class="btn soft" id="messageBtn">New message / GC</button><button class="btn soft" id="notifyBtn">Send test notification</button></div><div class="notice">This is your first playable foundation. Your project saves in this browser automatically; export a backup before clearing browser data.</div></div></div>
+<nav class="nav" aria-label="Main navigation">
+ <button class="active" data-tab="home">✦ Home</button><button data-tab="accounts">Accounts</button><button data-tab="socials">Socials</button><button data-tab="messages">Messages</button><button data-tab="phone">Phone</button><button data-tab="media">Media Library</button><button data-tab="projects">My AUs</button>
+</nav>
+<div class="layout">
+<aside class="left-col">
+ <section class="panel">
+  <div class="panel-head">YOUR CREATOR PROFILE</div>
+  <div class="panel-body">
+   <div class="profile-top"><div class="avatar">🌙</div><div><div class="profile-name">Mooniverse User</div><div class="handle">@youruniverse</div><div class="status">✦ CREATOR MODE</div></div></div>
+   <div class="mini-stats"><div class="stat"><b>04</b><span>Accounts</span></div><div class="stat"><b>12</b><span>Drafts</span></div><div class="stat"><b>03</b><span>AUs</span></div></div>
+   <button class="soft-button">＋ Create a new account</button>
+  </div>
  </section>
- <aside class="right">
-  <div class="panel"><div class="panel-head"><h2>Creator studio</h2><span class="eyebrow">EDIT ANYTHING</span></div><div class="editor" id="editorArea"></div></div>
-  <div class="panel"><div class="panel-head"><h2>Universe accounts</h2><button class="btn soft" id="addAccountBtn">＋ Add</button></div><div class="editor" id="accountArea"></div></div>
- </aside>
+ <section class="panel" style="margin-top:13px">
+  <div class="panel-head">QUICK NAVIGATION</div>
+  <div class="panel-body menu-list">
+   <button class="selected" data-tab="home"><span>⌂</span>Creator dashboard</button>
+   <button data-tab="accounts"><span>♙</span>Manage accounts</button>
+   <button data-tab="messages"><span>✉</span>DMs & group chats</button>
+   <button data-tab="media"><span>▧</span>Uploads & wallpapers</button>
+   <button data-tab="projects"><span>♡</span>Saved AU projects</button>
+   <button data-tab="settings"><span>⚙</span>Workspace settings</button>
+  </div>
+ </section>
+ <section class="panel" style="margin-top:13px">
+  <div class="panel-head">MOODBOARD TAGS</div>
+  <div class="panel-body"><div class="tag-cloud"><span class="tag">Y2K diary</span><span class="tag">soft violet</span><span class="tag">digital life</span><span class="tag">FILO AU</span><span class="tag">scrapbook</span><span class="tag">teen drama</span></div></div>
+ </section>
+</aside>
+<main class="center">
+ <section class="panel welcome">
+  <div class="welcome-row"><div><h1>Welcome to your Mooniverse ✦</h1><p>A little corner to build fictional online lives. Create accounts, shape their feeds, write conversations, and bring every AU timeline together.</p></div><div class="date-chip">YOUR CREATOR SPACE · 2000s BLOG INSPIRED</div></div>
+ </section>
+ <div class="section-title"><h2>Choose your social world</h2><small>SELECT A PLATFORM TO START</small></div>
+ <section class="platform-grid">
+  <button class="platform ig" data-tab="socials"><div class="p-icon">◎</div><b>Instagram</b><small>Feed · Stories · Profile · DM</small></button>
+  <button class="platform fb" data-tab="socials"><div class="p-icon">f</div><b>Facebook</b><small>Home · Profile · Groups</small></button>
+  <button class="platform x" data-tab="socials"><div class="p-icon">𝕏</div><b>Twitter / X</b><small>Posts · Replies · Timeline</small></button>
+  <button class="platform tt" data-tab="socials"><div class="p-icon">♫</div><b>TikTok</b><small>Videos · LIVE · Activity</small></button>
+  <button class="platform th" data-tab="socials"><div class="p-icon">＠</div><b>Threads</b><small>Threads · Replies · Profile</small></button>
+  <button class="platform be" data-tab="socials"><div class="p-icon">◉</div><b>BeReal</b><small>Daily moments · Friends</small></button>
+  <button class="platform im" data-tab="messages"><div class="p-icon">▰</div><b>iMessage</b><small>Chats · Group messages</small></button>
+  <button class="platform phone" data-tab="phone"><div class="p-icon">▣</div><b>Phone Studio</b><small>Homescreen · Apps · Alerts</small></button>
+ </section>
+ <section class="panel composer">
+  <div class="panel-head">QUICK CREATE · START A NEW MOMENT</div>
+  <div class="panel-body">
+   <div class="compose-top"><div class="compose-avatar">✧</div><div class="compose-input">What are we creating today?</div></div>
+   <div class="compose-actions"><button data-tab="socials">＋ New post</button><button data-tab="messages">✉ New conversation</button><button data-tab="accounts">♙ New profile</button><button data-tab="media">▧ Upload media</button></div>
+  </div>
+ </section>
+ <div class="section-title"><h2>From your universe</h2><small>DESIGN PREVIEW</small></div>
+ <section class="panel feed-card">
+  <div class="panel-body">
+   <div class="post-head"><div class="avatar">🦋</div><div><b>your.au.character</b><small>@little.daydream · 2 hours ago</small></div></div>
+   <p class="post-text">somewhere between the playlists, late-night messages, and tiny moments — a whole story is waiting to happen. ♡</p>
+   <div class="post-art">a day in their universe ✧</div>
+   <div class="post-footer"><span>♡ 128 likes　↗ 14 replies</span><span>♡ Like　↗ Share</span></div>
+  </div>
+ </section>
 </main>
-<div class="toast" id="toast"></div>
-<div class="notification" id="notification"><div class="notification-top"><span>✦ SOCIALVERSE NOTIFICATION</span><span id="notifTime">now</span></div><p id="notifText"></p></div>
-<div class="modal-back" id="modalBack"><div class="modal" id="modal"></div></div>
-<input type="file" id="fileInput" accept="image/*" hidden><input type="file" id="projectInput" accept="application/json,.json" hidden>
+<aside class="right-col">
+ <section class="panel right-card">
+  <div class="panel-head">RECENT ACTIVITY</div>
+  <div class="panel-body activity">
+   <div class="activity-item"><span class="dot"></span><span><b>Welcome!</b><br>Your creator workspace is ready to be styled.</span></div>
+   <div class="activity-item"><span class="dot" style="background:#8dc7e8"></span><span><b>Local-first saving</b><br>Your future edits will be saved in this browser on this device.</span></div>
+   <div class="activity-item"><span class="dot" style="background:#f0d58a"></span><span><b>Backup reminder</b><br>Export a backup now and then to keep a copy safe.</span></div>
+  </div>
+ </section>
+ <section class="panel right-card">
+  <div class="panel-head">YOUR CAST LIST</div>
+  <div class="panel-body"><div class="friend-grid">
+   <div class="friend"><div class="avatar">☁</div>Character One</div>
+   <div class="friend"><div class="avatar">✿</div>Character Two</div>
+   <div class="friend"><div class="avatar">☆</div>Character Three</div>
+   <div class="friend"><div class="avatar">♡</div>Character Four</div>
+  </div><button class="soft-button" data-tab="accounts">View all accounts →</button></div>
+ </section>
+ <section class="panel right-card">
+  <div class="panel-head">A LITTLE NOTE</div>
+  <div class="panel-body" style="font:italic 12px/1.7 'Playfair Display',serif;color:#8b7da9">Every account has a story. Every timeline has a little universe of its own. ✧</div>
+ </section>
+</aside>
+</div>
+<footer class="footer">MOONIVERSE SOCIAL ✦ MADE FOR YOUR AU WORLDS · STYLE PREVIEW 01</footer>
+</div>
 <script>
-const apps=[
- {id:'facebook',name:'Facebook',icon:'f',color:'#e8f1ff'},
- {id:'instagram',name:'Instagram',icon:'◎',color:'#fce8f2'},
- {id:'twitter',name:'X / Twitter',icon:'𝕏',color:'#eeeeee'},
- {id:'tiktok',name:'TikTok',icon:'♪',color:'#e5f8f7'},
- {id:'threads',name:'Threads',icon:'@',color:'#eeeeee'},
- {id:'bereal',name:'BeReal',icon:'◉',color:'#fff4d8'},
- {id:'imessage',name:'iMessage',icon:'●',color:'#e4f5e9'}
-];
-const defaultState=()=>({projectName:'Untitled AU',wallpaper:'',activeApp:'home',activeAccount:'a1',accounts:[{id:'a1',name:'Jules Rivera',handle:'@julesrivera',bio:'collecting little moments ✷',website:'',location:'Manila',avatar:'',cover:'',verified:true,private:false,followers:12800,following:486,friends:312,posts:[]},{id:'a2',name:'Mika Santos',handle:'@mikasays',bio:'somewhere between daydreams & deadlines',website:'',location:'',avatar:'',cover:'',verified:false,private:true,followers:2840,following:622,friends:84,posts:[]}],posts:[{id:'p1',accountId:'a1',app:'instagram',caption:'a little dump from a day worth keeping ☁️',image:'',likes:284,comments:18,shares:4,time:'2h',type:'post'},{id:'p2',accountId:'a2',app:'twitter',caption:'some days feel like a whole chapter on their own.',image:'',likes:93,comments:12,shares:7,time:'35m',type:'post'}],chats:[{id:'c1',name:'the gc ⋆',members:['a1','a2','Kai'],group:true,messages:[{from:'Mika',text:'are we still on for later?',time:'9:32'},{from:'Jules',text:'obviously. be ready by 6 😭',time:'9:34'}]}],notifications:[],theme:'mix',canvas:'auto'});
-let state=load();
-function load(){try{return JSON.parse(localStorage.getItem('socialverse-project'))||defaultState()}catch(e){return defaultState()}}
-function save(){localStorage.setItem('socialverse-project',JSON.stringify(state));document.getElementById('saveState').textContent='● Saved locally';}
-function toast(t){let el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
-function active(){return state.accounts.find(a=>a.id===state.activeAccount)||state.accounts[0]}
-function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function avatar(a){return a.avatar?`<img src="${a.avatar}" alt="">`:esc((a.name||'?').slice(0,1).toUpperCase())}
-function renderApps(){document.getElementById('platformList').innerHTML=apps.map(a=>`<button class="app ${state.activeApp===a.id?'active':''}" data-app="${a.id}"><span class="app-icon" style="background:${a.color}">${a.icon}</span><span>${a.name}</span></button>`).join('');document.querySelectorAll('[data-app]').forEach(b=>b.onclick=()=>openApp(b.dataset.app))}
-function openApp(id){state.activeApp=id;render();save()}
-function render(){document.getElementById('projectNameLabel').textContent=state.projectName;renderApps();renderPhone();renderEditor();renderAccounts()}
-function renderPhone(){let screen=document.getElementById('phoneScreen');screen.style.backgroundImage=state.wallpaper?`linear-gradient(#ffffff22,#ffffff22),url("${state.wallpaper}")`:'linear-gradient(145deg,#e9e1ff,#dff2ff 55%,#fff0ca)';let c=document.getElementById('phoneContent');let app=apps.find(x=>x.id===state.activeApp);document.getElementById('viewHeading').textContent=state.activeApp==='home'?'Your phone':app.name;document.getElementById('viewHint').textContent=state.activeApp==='home'?'LIVE PREVIEW':'APP PREVIEW';
-if(state.activeApp==='home'){c.innerHTML=`<div class="phone-header"><div><div class="phone-time">MONDAY · 9:41 AM</div><div class="phone-title">Good day, ${esc(active().name.split(' ')[0])} ✦</div><div class="wallpaper-hint">your fictional little universe</div></div><div style="font-size:24px">☼</div></div><div class="widget"><small>MONDAY, NOVEMBER 16</small><strong>Make a little magic.</strong><small>${state.posts.length} posts · ${state.accounts.length} accounts · ${state.chats.length} chats</small></div><div class="eyebrow">YOUR APPS</div><div class="home-grid">${apps.map(a=>`<button class="home-app" data-homeapp="${a.id}"><span class="app-icon" style="background:${a.color}">${a.icon}</span>${a.name}</button>`).join('')}</div><div class="dock"><span>☎</span><span>✉</span><span>◎</span><span>⚙</span></div>`;c.querySelectorAll('[data-homeapp]').forEach(b=>b.onclick=()=>openApp(b.dataset.homeapp));return}
-let me=active(),posts=state.posts.filter(p=>p.app===state.activeApp);let stories=state.accounts.map(a=>`<div class="story"><div class="avatar">${avatar(a)}</div>${esc(a.name.split(' ')[0])}</div>`).join('');
-let top=`<div class="statusbar"><span>9:41</span><span>●●● ▰</span></div><div class="phone-header"><b style="font-size:19px">${app.name==='X / Twitter'?'𝕏':app.name}</b><span>⌕　♡　✉</span></div>`;
-if(state.activeApp==='imessage'){c.innerHTML=top+`<div class="screen-title">Messages</div><div class="screen-sub">Your conversations</div>${state.chats.map(ch=>`<div class="chat-row" data-chat="${ch.id}"><div class="avatar">${ch.group?'👥':'✦'}</div><div><b>${esc(ch.name)}</b><p>${esc(ch.messages.at(-1)?.text||'No messages yet')}</p></div></div>`).join('')}<button class="btn soft" id="phoneNewChat">＋ New message / group</button>`;c.querySelectorAll('[data-chat]').forEach(x=>x.onclick=()=>showChat(x.dataset.chat));c.querySelector('#phoneNewChat').onclick=()=>newChat();return}
-if(state.activeApp==='facebook'||state.activeApp==='instagram'||state.activeApp==='bereal'){c.innerHTML=top+`<div class="stories">${stories}</div><div class="screen-title">${state.activeApp==='bereal'?'Your memories': 'For you'}</div>${posts.length?posts.map(postCard).join(''):'<div class="empty">No posts here yet. Make the first one ✦</div>'}<div class="screen-nav">⌂　⌕　＋　♡　◉</div>`}
-else if(state.activeApp==='twitter'||state.activeApp==='threads'){c.innerHTML=top+`<div class="screen-title">${state.activeApp==='twitter'?'For you':'Your feed'}</div>${posts.length?posts.map(postCard).join(''):'<div class="empty">The timeline is quiet. Start a conversation.</div>'}<div class="screen-nav">⌂　⌕　＋　♡　◉</div>`}
-else{c.innerHTML=top+`<div class="screen-title">For You</div><div class="widget"><b>LIVE NOW</b><p class="screen-sub">Your fictional creators are ready to go live.</p><button class="btn soft" id="startLive">＋ Start LIVE</button></div>${posts.length?posts.map(postCard).join(''):'<div class="empty">No videos yet. Add a post to start your For You feed.</div>'}<div class="screen-nav">⌂　♧　＋　✉　◉</div>`;let live=c.querySelector('#startLive');if(live)live.onclick=()=>notify(`${me.name} started a LIVE stream.`)}
-}
-function postCard(p){let a=state.accounts.find(x=>x.id===p.accountId)||active();return `<article class="feed-post"><div class="post-user"><div class="avatar">${avatar(a)}</div><div>${esc(a.name)} ${a.verified?'✓':''}<div class="screen-sub">${esc(a.handle)} · ${esc(p.time||'now')}</div></div><span style="margin-left:auto">•••</span></div><div class="post-text">${esc(p.caption)}</div>${p.image?`<img class="post-image" src="${p.image}">`:''}<div class="post-actions"><span>♡ ${p.likes||0}</span><span>◯ ${p.comments||0}</span><span>↗ ${p.shares||0}</span><span>⌑</span></div></article>`}
-function renderEditor(){let e=document.getElementById('editorArea');let a=active();e.innerHTML=`<div class="editor-tabs"><button class="tab active" id="tabAccount">Account</button><button class="tab" id="tabPost">Post</button><button class="tab" id="tabPhone">Phone</button></div><div id="editorFields"><div class="field"><label>Universe / project name</label><input id="projectName" value="${esc(state.projectName)}"></div><div class="field"><label>Active account</label><select id="activeAccount">${state.accounts.map(x=>`<option value="${x.id}" ${x.id===a.id?'selected':''}>${esc(x.name)}</option>`).join('')}</select></div><div class="two"><div class="field"><label>Display name</label><input id="accName" value="${esc(a.name)}"></div><div class="field"><label>Username</label><input id="accHandle" value="${esc(a.handle)}"></div></div><div class="field"><label>Bio</label><textarea id="accBio">${esc(a.bio)}</textarea></div><div class="two"><div class="field"><label>Website</label><input id="accWebsite" value="${esc(a.website)}"></div><div class="field"><label>Location</label><input id="accLocation" value="${esc(a.location)}"></div></div><div class="two"><div class="field"><label>Followers</label><input type="number" id="accFollowers" value="${a.followers}"></div><div class="field"><label>Following</label><input type="number" id="accFollowing" value="${a.following}"></div></div><div class="two"><div class="field"><label>Friends</label><input type="number" id="accFriends" value="${a.friends}"></div><div class="field"><label>Profile photo</label><button class="btn" id="avatarUpload">Upload image</button></div></div><div class="switchrow"><span>Verified account</span><input type="checkbox" id="accVerified" ${a.verified?'checked':''}></div><div class="switchrow"><span>Private / locked account</span><input type="checkbox" id="accPrivate" ${a.private?'checked':''}></div><button class="btn primary" id="saveAccount">Save account details</button></div>`;
-document.getElementById('tabAccount').onclick=()=>renderEditor();document.getElementById('tabPost').onclick=()=>postEditor();document.getElementById('tabPhone').onclick=()=>phoneEditor();
-document.getElementById('projectName').onchange=e=>{state.projectName=e.target.value;save();render()};document.getElementById('activeAccount').onchange=e=>{state.activeAccount=e.target.value;render()};document.getElementById('avatarUpload').onclick=()=>pickImage(data=>{a.avatar=data;save();render()});document.getElementById('saveAccount').onclick=()=>{a.name=val('accName');a.handle=val('accHandle');a.bio=val('accBio');a.website=val('accWebsite');a.location=val('accLocation');a.followers=+val('accFollowers');a.following=+val('accFollowing');a.friends=+val('accFriends');a.verified=checked('accVerified');a.private=checked('accPrivate');save();render();toast('Account details saved ✦')}}
-function val(id){return document.getElementById(id)?.value||''}function checked(id){return !!document.getElementById(id)?.checked}
-function postEditor(){let e=document.getElementById('editorFields');e.innerHTML=`<div class="field"><label>Platform</label><select id="postApp">${apps.filter(a=>a.id!=='imessage').map(a=>`<option value="${a.id}" ${a.id===state.activeApp?'selected':''}>${a.name}</option>`).join('')}</select></div><div class="field"><label>Posting as</label><select id="postAccount">${state.accounts.map(a=>`<option value="${a.id}" ${a.id===state.activeAccount?'selected':''}>${esc(a.name)}</option>`).join('')}</select></div><div class="field"><label>Caption / text</label><textarea id="postCaption" placeholder="What's happening in your AU?"></textarea></div><div class="two"><div class="field"><label>Likes</label><input type="number" id="postLikes" value="0"></div><div class="field"><label>Comments</label><input type="number" id="postComments" value="0"></div></div><div class="field"><label>Attach photo</label><button class="btn" id="postImage">＋ Upload photo</button><span class="muted" id="imageName">No image selected</span></div><button class="btn primary" id="publishPost">Publish post</button>`;let image='';document.getElementById('postImage').onclick=()=>pickImage(d=>{image=d;document.getElementById('imageName').textContent='Image attached ✓'});document.getElementById('publishPost').onclick=()=>{let caption=val('postCaption').trim();if(!caption&&!image){toast('Add a caption or image first');return}state.posts.unshift({id:'p'+Date.now(),accountId:val('postAccount'),app:val('postApp'),caption,image,likes:+val('postLikes'),comments:+val('postComments'),shares:0,time:'now',type:'post'});state.activeApp=val('postApp');save();render();notify('Your new post is live in '+apps.find(x=>x.id===state.activeApp).name);toast('Post published ✦')}}
-function phoneEditor(){let e=document.getElementById('editorFields');e.innerHTML=`<div class="field"><label>Phone wallpaper</label><button class="btn" id="wallUpload">Upload wallpaper</button></div><div class="field"><label>Canvas / export size</label><select id="canvas"><option value="auto">Auto — fit the content</option><option value="phone">Phone screen · 9:19.5</option><option value="square">Square · 1:1</option><option value="portrait">Portrait · 4:5</option><option value="story">Story · 9:16</option></select></div><div class="field"><label>Project appearance</label><select id="theme"><option value="mix">Authentic + customizable</option><option value="authentic">Authentic platform look</option><option value="custom">Coordinated Socialverse theme</option></select></div><button class="btn primary" id="savePhone">Save phone settings</button><p class="muted">Wallpaper and canvas preferences are stored with this project.</p>`;document.getElementById('wallUpload').onclick=()=>pickImage(d=>{state.wallpaper=d;save();renderPhone();toast('Wallpaper updated')});document.getElementById('canvas').value=state.canvas||'auto';document.getElementById('theme').value=state.theme||'mix';document.getElementById('savePhone').onclick=()=>{state.canvas=val('canvas');state.theme=val('theme');save();toast('Phone settings saved')}}
-function renderAccounts(){document.getElementById('accountArea').innerHTML=state.accounts.map(a=>`<div class="chat-row"><div class="avatar">${avatar(a)}</div><div style="min-width:0;flex:1"><b>${esc(a.name)} ${a.verified?'✓':''}</b><p>${esc(a.handle)} · ${a.private?'Locked':'Public'}</p></div><button class="btn" data-switch="${a.id}">Use</button></div>`).join('');document.querySelectorAll('[data-switch]').forEach(b=>b.onclick=()=>{state.activeAccount=b.dataset.switch;render();save()})}
-function pickImage(cb){let inp=document.getElementById('fileInput');inp.onchange=()=>{let f=inp.files[0];if(!f)return;let r=new FileReader();r.onload=()=>cb(r.result);r.readAsDataURL(f);inp.value=''}}
-function notify(message){let n=document.getElementById('notification');document.getElementById('notifText').textContent=message;document.getElementById('notifTime').textContent='now';n.classList.add('show');setTimeout(()=>n.classList.remove('show'),4500);state.notifications.unshift({message,time:new Date().toLocaleTimeString()});save()}
-function modal(content){document.getElementById('modal').innerHTML=content;document.getElementById('modalBack').classList.add('show')}function closeModal(){document.getElementById('modalBack').classList.remove('show')}
-function newChat(){modal(`<h3>Start a conversation</h3><div class="field"><label>Chat name</label><input id="chatName" placeholder="e.g. the gc ⋆"></div><div class="field"><label>First message</label><textarea id="chatFirst" placeholder="Type a message..."></textarea></div><label class="switchrow"><span>Group chat</span><input id="chatGroup" type="checkbox" checked></label><div class="modal-actions"><button class="btn" onclick="closeModal()">Cancel</button><button class="btn primary" id="createChat">Create chat</button></div>`);document.getElementById('createChat').onclick=()=>{let name=document.getElementById('chatName').value.trim()||'New conversation';let first=document.getElementById('chatFirst').value;let ch={id:'c'+Date.now(),name,group:document.getElementById('chatGroup').checked,members:[active().name],messages:first?[{from:active().name,text:first,time:'now'}]:[]};state.chats.unshift(ch);save();closeModal();state.activeApp='imessage';render();showChat(ch.id)}}
-function showChat(id){let ch=state.chats.find(x=>x.id===id);if(!ch)return;modal(`<h3>${esc(ch.name)}</h3><div style="max-height:42vh;overflow:auto;background:#faf9fd;padding:12px;border-radius:14px" id="chatMessages">${ch.messages.map(m=>`<div class="bubble ${m.from===active().name?'mine':''}"><b>${esc(m.from)}</b><br>${esc(m.text)}<div style="font-size:9px;opacity:.7;margin-top:3px">${esc(m.time)}</div></div>`).join('')}</div><div class="chat-compose"><input id="chatReply" placeholder="iMessage"><button class="btn primary" id="sendReply">Send</button></div><div class="modal-actions"><button class="btn" onclick="closeModal()">Close</button></div>`);document.getElementById('sendReply').onclick=()=>{let t=document.getElementById('chatReply').value.trim();if(!t)return;ch.messages.push({from:active().name,text:t,time:'now'});save();showChat(id);notify('Message sent to '+ch.name)}}
-function init(){render();document.getElementById('homeBtn').onclick=()=>openApp('home');document.getElementById('editorBtn').onclick=()=>{document.getElementById('editorArea').scrollIntoView({behavior:'smooth'});renderEditor()};document.getElementById('settingsBtn').onclick=()=>phoneEditor();document.getElementById('editProfileBtn').onclick=()=>renderEditor();document.getElementById('wallpaperBtn').onclick=()=>phoneEditor();document.getElementById('messageBtn').onclick=newChat;document.getElementById('notifyBtn').onclick=()=>notify('This is a sample Socialverse pop-up notification ✦');document.getElementById('newPostBtn').onclick=()=>{postEditor();document.getElementById('editorArea').scrollIntoView({behavior:'smooth'})};document.getElementById('tabPost')?.addEventListener('click',postEditor);document.getElementById('addAccountBtn').onclick=()=>{let a={id:'a'+Date.now(),name:'New character',handle:'@newcharacter',bio:'',website:'',location:'',avatar:'',cover:'',verified:false,private:false,followers:0,following:0,friends:0,posts:[]};state.accounts.push(a);state.activeAccount=a.id;save();render();toast('New account created')};document.getElementById('exportBtn').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});let u=URL.createObjectURL(blob);let a=document.createElement('a');a.href=u;a.download=(state.projectName||'socialverse').toLowerCase().replace(/[^a-z0-9]+/g,'-')+'.json';a.click();URL.revokeObjectURL(u);toast('Project backup exported')};document.getElementById('importBtn').onclick=()=>document.getElementById('projectInput').click();document.getElementById('projectInput').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let data=JSON.parse(r.result);if(!data.accounts||!data.posts)throw Error();state=data;save();render();toast('Project imported')}catch(err){toast('That file is not a Socialverse project')}};r.readAsText(f);e.target.value=''};document.getElementById('modalBack').onclick=e=>{if(e.target.id==='modalBack')closeModal()};}
-init();
+document.querySelectorAll('[data-tab]').forEach(el=>el.addEventListener('click',()=>{
+ document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.tab===el.dataset.tab));
+ document.querySelectorAll('.menu-list button').forEach(b=>b.classList.toggle('selected',b.dataset.tab===el.dataset.tab));
+ const labels={home:'Creator dashboard',accounts:'Manage accounts',socials:'Social platform workspace',messages:'Messages & group chats',phone:'Phone Studio',media:'Media Library',projects:'Saved AU projects',settings:'Workspace settings'};
+ const title=document.querySelector('.welcome h1');
+ title.textContent=(labels[el.dataset.tab]||'Mooniverse Social')+' ✦';
+ document.querySelector('.welcome p').textContent='This is the visual direction for the '+(labels[el.dataset.tab]||'creator workspace')+'. The next build step will turn this section into its working editor.';
+}));
 </script>
 </body>
 </html>
